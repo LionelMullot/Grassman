@@ -12,7 +12,21 @@ int main(){
     gca::GCA_scalar a(2.0);
     gca::GCA_scalar b(3.0);
 
-    std::cout << "a=" << a << " b=" << b <<std::endl;
+    //SCALAR : Opérateur '='
+    a=b;
+    std::cout << "Operateur '=' : a=b=" << a << std::endl;
+
+    //SCALAR : Opérateur << (initialisation)
+    gca::GCA_scalar c;
+    c << 4.0;
+    std::cout << "Operateur '<<' (initialisation) : c<<4.0 donne c=" << c << std::endl;
+
+    //SCALAR : Opérateur '<<' (std::cout)
+    std::cout << "Operateur '<<' (sd::cout) : a=" << a << std::endl;
+
+    //SCALAR : Opérateur wedge '^'
+    gca::GCA_scalar d = a^b;
+    std::cout << "Operateur wedge '^' : d=a^b=" << d <<std::endl;
     return 0;
 }
 

@@ -16,7 +16,13 @@ double gca::GCA_scalar::getValue(){
 gca::GCA_scalar& gca::GCA_scalar::operator=(const gca::GCA_scalar& Other){
     this->value = Other.value;
 }
-gca::GCA_scalar& gca::GCA_scalar::operator^(const gca::GCA_scalar& Other){}
+gca::GCA_scalar& gca::GCA_scalar::operator^(const gca::GCA_scalar& Other){
+    this->value *= Other.value;
+}
+gca::GCA_scalar& gca::GCA_scalar::operator<<(const double& in){
+    this->value = in;
+}
+
 gca::GCA_antiquadvector& gca::GCA_scalar::operator~(){}
 
 std::ostream& gca::operator<<(std::ostream& os, gca::GCA_scalar& scalar){
