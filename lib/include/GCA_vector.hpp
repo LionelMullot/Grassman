@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 namespace gca{
 
@@ -8,7 +9,9 @@ class GCA_vector{
 public:
     GCA_vector();
     GCA_vector(const GCA_vector& other);
-    GCA_vector(const double value);
+    GCA_vector(double x, double y);
+    GCA_vector(double x, double y, double z);
+    GCA_vector(double x, double y, double z, double w);
 
     GCA_vector& operator=(const GCA_vector& Other);
     GCA_vector& operator^(const GCA_vector& Other);
@@ -16,7 +19,7 @@ public:
 
 
 private:
-    double value;
+    std::vector<double> values;
 };
 
 }
