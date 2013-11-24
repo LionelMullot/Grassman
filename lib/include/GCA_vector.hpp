@@ -5,6 +5,7 @@
 namespace gca{
 
 class GCA_antitrivector;
+class GCA_bivector;
 
 class GCA_vector{
 public:
@@ -17,7 +18,7 @@ public:
     std::vector<double>& getValues();
 
     GCA_vector& operator=(const GCA_vector& Other);
-    GCA_vector& operator^(const GCA_vector& Other);
+    GCA_bivector& operator^(const GCA_vector& Other);
 
     GCA_antitrivector& operator~();
 

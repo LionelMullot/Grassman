@@ -36,7 +36,7 @@ gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
     }
 }
 
-gca::GCA_vector& gca::GCA_vector::operator^(const gca::GCA_vector& Other){}
+gca::GCA_bivector& gca::GCA_vector::operator^(const gca::GCA_vector& Other){}
 
 gca::GCA_antitrivector& gca::GCA_vector::operator~(){}
 
