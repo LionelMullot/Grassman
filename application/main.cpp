@@ -5,9 +5,19 @@
 #include <GCA_vector.hpp>
 
 int main(){
+
     std::cout << std::endl << "--------------Scalaires-------------" << std::endl;
+
     gca::GCA_scalar a(2.0);
     gca::GCA_scalar b(3.0);
+    gca::GCA_vector u(1.0,2.0,4.0,1.0);
+
+    //VECTOR : Opérateur '<<' (std::cout)
+    std::cout << "Operateur '<<' (std::cout) : u=" << u << std::endl;
+
+    //SCALAR : Opérateur wedge avec vector '^'
+    gca::GCA_vector v = a^u;
+    std::cout << "Operateur wedge avec vector '^' : " << v << std::endl;
 
     //SCALAR : Opérateur '='
     a=b;
@@ -19,12 +29,11 @@ int main(){
     std::cout << "Operateur '<<' (initialisation) : c<<4.0 donne c=" << c << std::endl;
 
     //SCALAR : Opérateur '<<' (std::cout)
-    std::cout << "Operateur '<<' (sd::cout) : a=" << a << std::endl;
+    std::cout << "Operateur '<<' (std::cout) : a=" << a << std::endl;
 
     //SCALAR : Opérateur wedge '^'
     gca::GCA_scalar d = a^b;
     std::cout << "Operateur wedge '^' : d=a^b=" << d <<std::endl;
-
 
     std::cout << std::endl << "--------------Vectors-------------" << std::endl;
     gca::GCA_vector vec(2.0, 3.0, 5.0, 1.0);
@@ -36,7 +45,6 @@ int main(){
 
     //VECTOR : Opérateur '<<' (std::cout)
     std::cout << "Operateur '<<' (std::cout) vec : " << vec << std::endl;
-
 
     return 0;
 }

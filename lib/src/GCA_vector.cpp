@@ -1,4 +1,5 @@
 #include "GCA_vector.hpp"
+#include <iostream>
 
 gca::GCA_vector::GCA_vector(){
     values.push_back(1);
@@ -15,31 +16,33 @@ gca::GCA_vector::GCA_vector(double x, double y, double z, double w){
 }
 
 gca::GCA_vector::GCA_vector(const gca::GCA_vector& other){
-    values.push_back(other.values[0]);
-    values.push_back(other.values[1]);
-    values.push_back(other.values[2]);
-    values.push_back(other.values[3]);
+    for(unsigned int i = 0; i < other.values.size(); ++i){
+        values.push_back(other.values[i]);
+    }
 }
 
-std::vector<double> gca::GCA_vector::getValues(){
+std::vector<double>& gca::GCA_vector::getValues(){
     return values;
 }
 
 double& gca::GCA_vector::operator[](const int& i){
     return values[i];
 }
-gca::GCA_vector& gca::GCA_vector::operator=(const GCA_vector& Other){
-    values[0] = Other.values[0];
-    values[1] = Other.values[1];
-    values[2] = Other.values[2];
-    values[3] = Other.values[3];
+
+gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
+    for(unsigned int i = 0; i < Other.values.size(); ++i){
+        values.push_back(Other.values[i]);
+    }
 }
 
 gca::GCA_vector& gca::GCA_vector::operator^(const gca::GCA_vector& Other){}
 gca::GCA_antitrivector& gca::GCA_vector::operator~(){}
 
 
-std::ostream& gca::operator<<(std::ostream& os, GCA_vector& vector){
-    os << "[" << vector.getValues()[0] << ", " << vector.getValues()[1] << ", " << vector.getValues()[2] << ", " << vector.getValues()[3] << "]";
-    return os;
+std::ostream& gca::operator<<(std::ostream& Stream, GCA_vector& in){
+    Stream << "[";
+    for(unsigned int i = 0; i < in.getValues().size(); ++i)
+        Stream << " " << (in.getValues())[i];
+    Stream << " ]";
+    return Stream;
 }
