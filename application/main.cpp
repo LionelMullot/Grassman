@@ -12,13 +12,6 @@ int main(){
     gca::GCA_scalar b(3.0);
     gca::GCA_vector u(1.0,2.0,4.0,1.0);
 
-    //VECTOR : Opérateur '<<' (std::cout)
-    std::cout << "Operateur '<<' (std::cout) : u=" << u << std::endl;
-
-    //SCALAR : Opérateur wedge avec vector '^'
-    gca::GCA_vector v = a^u;
-    std::cout << "Operateur wedge avec vector '^' : " << v << std::endl;
-
     //SCALAR : Opérateur '='
     a=b;
     std::cout << "Operateur '=' : a=b=" << a << std::endl;
@@ -35,8 +28,13 @@ int main(){
     gca::GCA_scalar d = a^b;
     std::cout << "Operateur wedge '^' : d=a^b=" << d <<std::endl;
 
+    //SCALAR : Opérateur wedge avec vector '^'
+    gca::GCA_vector v = a^u;
+    std::cout << "Operateur wedge avec vector '^' : " << v << std::endl;
+
+
     std::cout << std::endl << "--------------Vectors-------------" << std::endl;
-    gca::GCA_vector vec(2.0, 3.0, 5.0, 1.0);
+    gca::GCA_vector vec(1.0,2.0,4.0,1.0);
     std::cout << "Creation du vecteur vec : " << vec << std::endl;
 
     //VECTOR : opérateur '[]'
