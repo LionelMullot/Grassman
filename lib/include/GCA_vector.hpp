@@ -1,14 +1,13 @@
 #pragma once
-#include <vector>
-#include <ostream>
+
 #include <Eigen/Dense>
 #include <Eigen/QR>
 
+#include "GCA_bivector.hpp"
 
 namespace gca{
 
 class GCA_antitrivector;
-class GCA_bivector;
 
 class GCA_vector : public Eigen::Vector4d{
 public:
@@ -17,7 +16,7 @@ public:
     GCA_vector(double x, double y, double z, double w);
 
     GCA_vector& operator=(const GCA_vector& Other);
-    GCA_bivector& operator^(const GCA_vector& Other);
+    GCA_bivector operator^(const GCA_vector& Other);
 
     GCA_antitrivector& operator~();
 

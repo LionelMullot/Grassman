@@ -5,8 +5,8 @@
 
 namespace gca{
 
-class GCA_antiquadvector: public Eigen::VectorXd{
-	GCA_antiquadvector();
+class GCA_quadvector: public Eigen::VectorXd{
+	GCA_quadvector();
 };
 
 }

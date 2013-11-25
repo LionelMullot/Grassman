@@ -1,6 +1,21 @@
 #include <iostream>
 #include <GCA_scalar.hpp>
 #include <GCA_vector.hpp>
+#include <GCA_bivector.hpp>
+
+void plop (){
+    gca :: GCA_vector a (1.0 ,2.0 ,3.0 ,1.0);
+    gca :: GCA_vector b ;
+    b << -1.0 , -3.0 , 2.0 , 1.0;
+    gca :: GCA_bivector l = a ^ b ; // l is a Plucker line
+    std :: cout << " l : " << l << std :: endl ;
+    gca :: GCA_vector x1 (2.0 , -1.0 , -1.0 ,1.0);
+    gca :: GCA_vector x2 (1.0 , -1.0 ,1.0 ,1.0);
+    gca :: GCA_vector x3 ( -1.0 , -1.0 , -2.0 ,1.0);
+   /* gca :: GCA_trivector d = x1 ^ x2 ^ x3 ; // d is a plane
+    std :: cout << " intersection : " << ~ d ^~ l << std :: endl ;*/
+}
+
 
 int main(){
 
@@ -45,6 +60,26 @@ int main(){
     //VECTOR : Constructeur par defaut
     gca::GCA_vector vec2;
     std::cout << "Vecteur vec2 : " << vec2 << std::endl;
+
+    std::cout << std::endl << "--------------Bivectors-------------" << std::endl;
+
+    gca::GCA_bivector bivec;
+    bivec << 1, 2, 3, 4, 5, 6;
+
+    std::cout << "Creation du bivecteur bivec : " << bivec << std::endl;
+
+    //VECTOR : opérateur '[]'
+    bivec[3] = 4.5;
+    std::cout << "Operateur '[]' bivec[3] = 4.5 : " << bivec << std::endl;
+
+    //VECTOR : Opérateur '<<' (std::cout)
+    std::cout << "Operateur '<<' (std::cout) vec : " << bivec << std::endl;
+
+    //VECTOR : Constructeur par defaut
+    gca::GCA_bivector bivec2;
+    std::cout << "Vecteur bivec2 : " << bivec2 << std::endl;
+
+    plop();
 
     return 0;
 }

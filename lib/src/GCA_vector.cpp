@@ -14,7 +14,16 @@ gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
     this->Eigen::Vector4d::operator=(Other);
 }
 
-gca::GCA_bivector& gca::GCA_vector::operator^(const gca::GCA_vector& Other){}
+gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_vector& Other){
+    gca::GCA_bivector result;
+    unsigned int cpt = 0;
+    for(unsigned int i = 0; i < Other.size() - 1; ++i){
+        for(unsigned int j = i + 1; j < Other.size(); ++j){
+            result[cpt++] = (this[0][i]*Other[j] - this[0][j]*Other[i]);
+        }
+    }
+    return result;
+}
 
 gca::GCA_antitrivector& gca::GCA_vector::operator~() {}
 
