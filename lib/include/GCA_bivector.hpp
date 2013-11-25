@@ -5,4 +5,6 @@ namespace gca{
 class GCA_bivector{
 
 
+};
+
 }

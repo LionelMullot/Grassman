@@ -1,4 +1,5 @@
 #include "GCA_scalar.hpp"
+#include <iostream>
 
 gca::GCA_scalar::GCA_scalar():
 	value(1){}
@@ -21,9 +22,9 @@ gca::GCA_scalar& gca::GCA_scalar::operator^(const gca::GCA_scalar& Other){
     this->value *= Other.value;
 }
 
-gca::GCA_vector& gca::GCA_scalar::operator^(gca::GCA_vector vector){ // Je passe une copie pour ne pas modifier le vecteur d'origine
-	for(unsigned int i = 0; i < vector.getValues().size(); ++i){
-    	(vector.getValues())[i] = (vector.getValues())[i] * this->value;
+gca::GCA_vector gca::GCA_scalar::operator^(gca::GCA_vector vector){ // Je passe une copie pour ne pas modifier le vecteur d'origine
+	for(unsigned int i = 0; i < vector.size(); ++i){
+    	vector[i] *= this->value;
     }
     return vector;
 }

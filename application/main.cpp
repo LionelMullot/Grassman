@@ -1,6 +1,4 @@
 #include <iostream>
-#include <Eigen/Dense>
-#include <Eigen/QR>
 #include <GCA_scalar.hpp>
 #include <GCA_vector.hpp>
 
@@ -43,6 +41,10 @@ int main(){
 
     //VECTOR : Opérateur '<<' (std::cout)
     std::cout << "Operateur '<<' (std::cout) vec : " << vec << std::endl;
+
+    //VECTOR : Constructeur par defaut
+    gca::GCA_vector vec2;
+    std::cout << "Vecteur vec2 : " << vec2 << std::endl;
 
     return 0;
 }

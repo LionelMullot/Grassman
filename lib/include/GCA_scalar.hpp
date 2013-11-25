@@ -20,7 +20,7 @@ public:
 
 	GCA_scalar& operator^(const GCA_scalar& Other);
 
-	GCA_vector& operator^(GCA_vector vector);
+	GCA_vector operator^(GCA_vector vector);
 
     GCA_scalar& operator<<(const double& in);
 

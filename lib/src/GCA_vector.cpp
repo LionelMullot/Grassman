@@ -1,48 +1,30 @@
 #include "GCA_vector.hpp"
 #include <iostream>
 
-gca::GCA_vector::GCA_vector(){
-    values.push_back(1);
-    values.push_back(1);
-    values.push_back(1);
-    values.push_back(1);
-}
+gca::GCA_vector::GCA_vector():
+    Eigen::Vector4d(Eigen::Vector4d::Zero()) {}
 
-gca::GCA_vector::GCA_vector(double x, double y, double z, double w){
-    values.push_back(x);
-    values.push_back(y);
-    values.push_back(z);
-    values.push_back(w);
-}
+gca::GCA_vector::GCA_vector(double x, double y, double z, double w):
+    Eigen::Vector4d(x, y, z, w) {}
 
-gca::GCA_vector::GCA_vector(const gca::GCA_vector& other){
-    for(unsigned int i = 0; i < other.values.size(); ++i){
-        values.push_back(other.values[i]);
-    }
-}
-
-std::vector<double>& gca::GCA_vector::getValues(){
-    return values;
-}
-
-double& gca::GCA_vector::operator[](const int& i){
-    return values[i];
-}
+gca::GCA_vector::GCA_vector(const gca::GCA_vector& other):
+    Eigen::Vector4d(other) {}
 
 gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
-    for(unsigned int i = 0; i < Other.values.size(); ++i){
-        values.push_back(Other.values[i]);
-    }
+    this->Eigen::Vector4d::operator=(Other);
 }
 
-gca::GCA_vector& gca::GCA_vector::operator^(const gca::GCA_vector& Other){}
-gca::GCA_antitrivector& gca::GCA_vector::operator~(){}
+gca::GCA_bivector& gca::GCA_vector::operator^(const gca::GCA_vector& Other){}
 
+gca::GCA_antitrivector& gca::GCA_vector::operator~() {}
 
-std::ostream& gca::operator<<(std::ostream& Stream, GCA_vector& in){
-    Stream << "[";
-    for(unsigned int i = 0; i < in.getValues().size(); ++i)
-        Stream << " " << (in.getValues())[i];
-    Stream << " ]";
-    return Stream;
+namespace gca{
+
+    std::ostream& operator<<(std::ostream& Stream, const gca::GCA_vector& in){
+        Stream << "[";
+            Stream << " " << in.transpose();
+        Stream << " ]";
+        return Stream;
+    }
+
 }
