@@ -3,6 +3,8 @@
 #include <Eigen/Dense>
 #include <Eigen/QR>
 
+#include "GCA_bivector.hpp"
+
 namespace gca{
 
 class GCA_bivector;

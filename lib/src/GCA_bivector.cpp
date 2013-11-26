@@ -1,6 +1,8 @@
 #include "GCA_bivector.hpp"
 #include <iostream>
 
+#include "GCA_vector.hpp"
+
 gca::GCA_bivector::GCA_bivector():
     Eigen::VectorXd(Eigen::VectorXd::Zero(6)) {}
 

@@ -3,13 +3,13 @@
 #include <Eigen/Dense>
 #include <Eigen/QR>
 
-#include "GCA_vector.hpp"
+#include "GCA_trivector.hpp"
 
 namespace gca{
 
+class GCA_vector;
 class GCA_antibivector;
 class GCA_quadvector;
-class GCA_trivector;
 
 class GCA_bivector : public Eigen::VectorXd{
 public:
