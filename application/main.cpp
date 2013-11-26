@@ -84,9 +84,8 @@ int main(){
     v1 << 1.0, 2.0, 3.0, 1.0;
     v2 << 3.0, 2.0, 1.0, 1.0;
     v3 << 2.0, 1.0, 2.0, 1.0;
-
     gca::GCA_trivector trivec;
-    trivec = v1^(v2^v3); // Parenthèses qu'il faudra virer quand on aura passé le code dans GCA_bivecteur
+    trivec = v1^v2^v3;
     std::cout << "Trivector construit par wedge de 3 vectors : " << trivec << std::endl;
 
     plop();

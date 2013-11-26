@@ -3,12 +3,13 @@
 #include <Eigen/Dense>
 #include <Eigen/QR>
 
-#include "GCA_quadvector.hpp"
-#include "GCA_trivector.hpp"
+#include "GCA_vector.hpp"
 
 namespace gca{
 
 class GCA_antibivector;
+class GCA_quadvector;
+class GCA_trivector;
 
 class GCA_bivector : public Eigen::VectorXd{
 public:
@@ -17,7 +18,9 @@ public:
 
     GCA_bivector& operator=(const GCA_bivector& Other);
 
-    GCA_quadvector& operator^(const GCA_bivector& Other); //Changer le type de retour
+    GCA_trivector operator^(const GCA_vector& Other);
+
+    GCA_quadvector& operator^(const GCA_bivector& Other); 
 
     GCA_antibivector& operator~(); //Changer le type de retour
 
