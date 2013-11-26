@@ -6,7 +6,7 @@
 void plop (){
     gca :: GCA_vector a (1.0 ,2.0 ,3.0 ,1.0);
     gca :: GCA_vector b ;
-    b << -1.0 , -3.0 , 2.0 , 1.0;
+    b << 3.0 , 2.0 , 1.0 , 1.0;
     gca :: GCA_bivector l = a ^ b ; // l is a Plucker line
     std :: cout << " l : " << l << std :: endl ;
     gca :: GCA_vector x1 (2.0 , -1.0 , -1.0 ,1.0);
@@ -78,6 +78,16 @@ int main(){
     //VECTOR : Constructeur par defaut
     gca::GCA_bivector bivec2;
     std::cout << "Vecteur bivec2 : " << bivec2 << std::endl;
+
+    std::cout << std::endl << "--------------Trivectors-------------" << std::endl;
+    gca::GCA_vector v1, v2, v3;
+    v1 << 1.0, 2.0, 3.0, 1.0;
+    v2 << 3.0, 2.0, 1.0, 1.0;
+    v3 << 2.0, 1.0, 2.0, 1.0;
+
+    gca::GCA_trivector trivec;
+    trivec = v1^(v2^v3); // Parenthèses qu'il faudra virer quand on aura passé le code dans GCA_bivecteur
+    std::cout << "Trivector construit par wedge de 3 vectors : " << trivec << std::endl;
 
     plop();
 

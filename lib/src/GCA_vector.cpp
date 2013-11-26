@@ -15,6 +15,7 @@ gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
 }
 
 gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_vector& Other){
+
     gca::GCA_bivector result;
     unsigned int cpt = 0;
     for(unsigned int i = 0; i < Other.size() - 1; ++i){
@@ -22,6 +23,16 @@ gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_vector& Other){
             result[cpt++] = (this[0][i]*Other[j] - this[0][j]*Other[i]);
         }
     }
+    return result;
+}
+
+gca::GCA_trivector gca::GCA_vector::operator^(const gca::GCA_bivector& Other){
+
+    gca::GCA_trivector result;
+    result[0] = Other[0]*this[0][2] - Other[1]*this[0][1] + Other[3]*this[0][0];
+    result[1] = Other[0]*this[0][3] - Other[2]*this[0][1] + Other[4]*this[0][0];
+    result[2] = Other[1]*this[0][3] - Other[2]*this[0][2] + Other[5]*this[0][0];
+    result[3] = Other[3]*this[0][3] - Other[4]*this[0][2] + Other[5]*this[0][1];
     return result;
 }
 

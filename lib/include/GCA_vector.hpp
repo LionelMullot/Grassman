@@ -4,6 +4,7 @@
 #include <Eigen/QR>
 
 #include "GCA_bivector.hpp"
+#include "GCA_trivector.hpp"
 
 namespace gca{
 
@@ -17,6 +18,7 @@ public:
 
     GCA_vector& operator=(const GCA_vector& Other);
     GCA_bivector operator^(const GCA_vector& Other);
+    GCA_trivector operator^(const GCA_bivector& Other);
 
     GCA_antitrivector& operator~();
 

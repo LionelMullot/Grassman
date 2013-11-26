@@ -11,6 +11,7 @@ gca::GCA_bivector& gca::GCA_bivector::operator=(const gca::GCA_bivector& Other){
     this->Eigen::VectorXd::operator=(Other);
 }
 
+
 gca::GCA_quadvector& gca::GCA_bivector::operator^(const gca::GCA_bivector& Other){}
 
 gca::GCA_antibivector& gca::GCA_bivector::operator~() {}
