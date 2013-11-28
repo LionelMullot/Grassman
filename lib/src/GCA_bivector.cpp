@@ -26,7 +26,11 @@ gca::GCA_trivector gca::GCA_bivector::operator^(const gca::GCA_vector& Other){
 gca::GCA_quadvector& gca::GCA_bivector::operator^(const gca::GCA_bivector& Other){
 }
 
-gca::GCA_antibivector& gca::GCA_bivector::operator~() {}
+gca::GCA_antibivector gca::GCA_bivector::operator~() {
+    gca::GCA_antibivector result;
+    result << this[0][5], -this[0][4], this[0][3], this[0][2], -this[0][1], this[0][0];
+    return result;
+}
 
 namespace gca{
 

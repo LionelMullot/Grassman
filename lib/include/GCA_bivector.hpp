@@ -4,6 +4,7 @@
 #include <Eigen/QR>
 
 #include "GCA_trivector.hpp"
+#include "GCA_antibivector.hpp"
 
 namespace gca{
 
@@ -22,7 +23,7 @@ public:
 
     GCA_quadvector& operator^(const GCA_bivector& Other); 
 
-    GCA_antibivector& operator~(); //Changer le type de retour
+    GCA_antibivector operator~(); //Changer le type de retour
 
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_bivector& in);
 

@@ -66,16 +66,22 @@ int main(){
     gca::GCA_bivector bivec;
     bivec << 1, 2, 3, 4, 5, 6;
 
+    gca::GCA_bivector bivec3;
+    bivec3 << -4, -8, -2, -4, 0, 2;
+
     std::cout << "Creation du bivecteur bivec : " << bivec << std::endl;
 
-    //VECTOR : opérateur '[]'
+    //BIVECTOR : opérateur '[]'
     bivec[3] = 4.5;
     std::cout << "Operateur '[]' bivec[3] = 4.5 : " << bivec << std::endl;
 
-    //VECTOR : Opérateur '<<' (std::cout)
-    std::cout << "Operateur '<<' (std::cout) vec : " << bivec << std::endl;
+    //BIVECTOR : Opérateur '<<' (std::cout)
+    std::cout << "Operateur '<<' (std::cout) bivec : " << bivec << std::endl;
 
-    //VECTOR : Constructeur par defaut
+    //BIVECTOR : Opérateur '~' (std::cout)
+    std::cout << "Operateur '~' (std::cout) bivec3 : " << ~bivec3 << std::endl;
+
+    //BIVECTOR : Constructeur par defaut
     gca::GCA_bivector bivec2;
     std::cout << "Vecteur bivec2 : " << bivec2 << std::endl;
 
