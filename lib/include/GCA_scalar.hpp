@@ -24,13 +24,12 @@ public:
 
     GCA_scalar& operator<<(const double& in);
 
-	GCA_antiquadvector& operator~();
+    GCA_antiquadvector operator~();
 
 
 private:
     double value;
 };
-// A mettre en dehors de la classe. A voir comment ça se comportera pour les autres classes.
 std::ostream& operator<<(std::ostream& os, GCA_scalar& scalar);
 }
 

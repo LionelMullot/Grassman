@@ -18,8 +18,8 @@ public:
     GCA_antiquadvector& operator=(const GCA_antiquadvector& Other);
     GCA_antiquadvector& operator<<(const double& in);
 
-    GCA_scalar& operator~();
-
+    GCA_scalar operator~();
+    double& e1234();
 
 private:
     double value;

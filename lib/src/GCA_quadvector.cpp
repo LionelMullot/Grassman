@@ -1,4 +1,5 @@
 #include "GCA_quadvector.hpp"
+#include "GCA_antiscalar.hpp"
 #include <iostream>
 
 gca::GCA_quadvector::GCA_quadvector():
@@ -22,7 +23,15 @@ gca::GCA_quadvector& gca::GCA_quadvector::operator<<(const double& in){
     this->value = in;
 }
 
-gca::GCA_antiscalar& gca::GCA_quadvector::operator~(){}
+gca::GCA_antiscalar gca::GCA_quadvector::operator~(){
+    gca::GCA_antiscalar result;
+    result = this->value;
+    return result;
+}
+
+double& gca::GCA_quadvector::e1234(){
+    return value;
+}
 
 std::ostream& gca::operator<<(std::ostream& os, gca::GCA_quadvector& quadvector){
   os << quadvector.getValue();

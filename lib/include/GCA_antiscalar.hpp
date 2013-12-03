@@ -24,7 +24,7 @@ public:
 
     GCA_antiscalar& operator<<(const double& in);
 
-    GCA_quadvector& operator~();
+    GCA_quadvector operator~();
 
 
 private:

@@ -1,4 +1,5 @@
 #include "GCA_scalar.hpp"
+#include "GCA_antiquadvector.hpp"
 #include <iostream>
 
 gca::GCA_scalar::GCA_scalar():
@@ -33,7 +34,11 @@ gca::GCA_scalar& gca::GCA_scalar::operator<<(const double& in){
     this->value = in;
 }
 
-gca::GCA_antiquadvector& gca::GCA_scalar::operator~(){}
+gca::GCA_antiquadvector gca::GCA_scalar::operator~(){
+    gca::GCA_antiquadvector result;
+    result << this[0].value;
+    return result;
+}
 
 std::ostream& gca::operator<<(std::ostream& os, gca::GCA_scalar& scalar){
   os << scalar.getValue();

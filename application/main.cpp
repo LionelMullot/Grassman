@@ -1,9 +1,11 @@
 #include <iostream>
 #include <GCA_scalar.hpp>
+#include <GCA_antiscalar.hpp>
 #include <GCA_vector.hpp>
 #include <GCA_bivector.hpp>
 #include <GCA_trivector.hpp>
 #include <GCA_quadvector.hpp>
+#include <GCA_antiquadvector.hpp>
 
 void plop (){
     gca :: GCA_vector a (1.0 ,2.0 ,3.0 ,1.0);
@@ -46,6 +48,13 @@ int main(){
     //SCALAR : Opérateur wedge avec vector '^'
     gca::GCA_vector v = a^u;
     std::cout << "Operateur wedge avec vector '^' : " << v << std::endl;
+
+    std::cout << std::endl << "--------------Anti Scalaires-------------" << std::endl;
+    gca::GCA_antiscalar antiscalar1;
+    gca::GCA_quadvector quadvec2;
+    quadvec2 = 7.0;
+    antiscalar1 = ~quadvec2;
+    std::cout << "Antiscalar construit par base duale de quadvector, antiscalar1 = " << antiscalar1 << std::endl;
 
 
     std::cout << std::endl << "--------------Vectors-------------" << std::endl;
@@ -101,6 +110,24 @@ int main(){
     quadv1 << 1.0;
     quadv2 << 3.0;
     std::cout << "Quadvector quadv1 : " << quadv1 << std::endl;
+    std::cout << "Composante e1234 : " << quadv1.e1234() << std::endl;
+
+    gca::GCA_antiscalar antiscalar2;
+    antiscalar2 = ~quadv2;
+    std::cout << "AntiScalaire par base duale de quadv2(egal a 3) antiscalar2= " << antiscalar2 << std::endl;
+
+    std::cout << std::endl << "--------------AntiQuadvectors-------------" << std::endl;
+    gca::GCA_antiquadvector antiquadv1;
+    gca::GCA_scalar scalar;
+    scalar = 7.0;
+    antiquadv1 = ~scalar;
+    std::cout << "AntiQuadvector antiquadv1 : " << antiquadv1 << std::endl;
+    std::cout << "Composante e1234 : " << antiquadv1.e1234() << std::endl;
+
+    antiquadv1 << 9.0;
+    scalar = ~antiquadv1;
+    std::cout << "Scalaire par base duale d'antiquadv1(egal a 9) scalar= " << scalar << std::endl;
+
 
 
    // plop();
