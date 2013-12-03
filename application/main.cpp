@@ -2,6 +2,8 @@
 #include <GCA_scalar.hpp>
 #include <GCA_vector.hpp>
 #include <GCA_bivector.hpp>
+#include <GCA_trivector.hpp>
+#include <GCA_quadvector.hpp>
 
 void plop (){
     gca :: GCA_vector a (1.0 ,2.0 ,3.0 ,1.0);
@@ -94,7 +96,14 @@ int main(){
     trivec = v1^v2^v3;
     std::cout << "Trivector construit par wedge de 3 vectors : " << trivec << std::endl;
 
-    plop();
+    std::cout << std::endl << "--------------Quadvectors-------------" << std::endl;
+    gca::GCA_quadvector quadv1, quadv2;
+    quadv1 << 1.0;
+    quadv2 << 3.0;
+    std::cout << "Quadvector quadv1 : " << quadv1 << std::endl;
+
+
+   // plop();
 
     return 0;
 }
