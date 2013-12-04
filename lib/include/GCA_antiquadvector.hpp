@@ -13,18 +13,22 @@ public:
     GCA_antiquadvector(const GCA_antiquadvector& other);
     GCA_antiquadvector(const double value);
 
-    double& getValue();
-
+    //Opérateur
     GCA_antiquadvector& operator=(const GCA_antiquadvector& Other);
     GCA_antiquadvector& operator<<(const double& in);
 
     GCA_scalar operator~();
-    double& e1234();
+
+    //Affichage
+
+    friend std::ostream& operator<<(std::ostream& os, GCA_antiquadvector& antiquadvector);
+
+    double& getValue(){ return value; }
+    const double& e1234() const{ return value; }
 
 private:
     double value;
 };
 
-std::ostream& operator<<(std::ostream& os, GCA_antiquadvector& antiquadvector);
 }
 

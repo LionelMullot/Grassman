@@ -5,6 +5,8 @@
 
 namespace gca{
 
+class GCA_trivector;
+
 class GCA_antivector: public Eigen::VectorXd{
 	GCA_antivector();
 };

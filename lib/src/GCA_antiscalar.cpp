@@ -11,10 +11,6 @@ gca::GCA_antiscalar::GCA_antiscalar(const gca::GCA_antiscalar& other):
 gca::GCA_antiscalar::GCA_antiscalar(const double value):
     value(value){}
 
-double& gca::GCA_antiscalar::getValue(){
-    return value;
-}
-
 gca::GCA_antiscalar& gca::GCA_antiscalar::operator=(const gca::GCA_antiscalar& Other){
     this->value = Other.value;
 }
@@ -39,7 +35,11 @@ gca::GCA_quadvector gca::GCA_antiscalar::operator~(){
     return result;
 }
 
-std::ostream& gca::operator<<(std::ostream& os, gca::GCA_antiscalar& antiscalar){
+namespace gca{
+  
+std::ostream& operator<<(std::ostream& os, gca::GCA_antiscalar& antiscalar){
   os << antiscalar.getValue();
   return os;
+}
+
 }

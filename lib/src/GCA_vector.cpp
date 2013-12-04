@@ -2,13 +2,23 @@
 #include <iostream>
 
 gca::GCA_vector::GCA_vector():
-    Eigen::Vector4d(Eigen::Vector4d::Zero()) {}
+    Eigen::Vector4d(Eigen::Vector4d::Zero()) {
+        setComposantes();
+    }
 
 gca::GCA_vector::GCA_vector(double x, double y, double z, double w):
-    Eigen::Vector4d(x, y, z, w) {}
+    Eigen::Vector4d(x, y, z, w) {
+        setComposantes();
+    }
 
 gca::GCA_vector::GCA_vector(const gca::GCA_vector& other):
-    Eigen::Vector4d(other) {}
+    Eigen::Vector4d(other), composantes(other.composantes) {}
+
+void gca::GCA_vector::setComposantes(){
+    for(uint i = 1; i <= 4; ++i){
+         composantes.push_back(i);
+    }
+}
 
 gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
     this->Eigen::Vector4d::operator=(Other);
@@ -31,7 +41,8 @@ namespace gca{
 
     std::ostream& operator<<(std::ostream& Stream, const gca::GCA_vector& in){
         Stream << "[";
-            Stream << " " << in.transpose();
+            for(uint i = 0; i < in.composantes.size(); ++i)
+                Stream << " " << in(i) <<" e" << in.composantes[i] << " ;";
         Stream << " ]";
         return Stream;
     }

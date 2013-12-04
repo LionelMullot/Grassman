@@ -11,10 +11,6 @@ gca::GCA_quadvector::GCA_quadvector(const gca::GCA_quadvector& other):
 gca::GCA_quadvector::GCA_quadvector(const double value):
     value(value){}
 
-double& gca::GCA_quadvector::getValue(){
-    return value;
-}
-
 gca::GCA_quadvector& gca::GCA_quadvector::operator=(const gca::GCA_quadvector& Other){
     this->value = Other.value;
 }
@@ -29,11 +25,7 @@ gca::GCA_antiscalar gca::GCA_quadvector::operator~(){
     return result;
 }
 
-double& gca::GCA_quadvector::e1234(){
-    return value;
-}
-
 std::ostream& gca::operator<<(std::ostream& os, gca::GCA_quadvector& quadvector){
-  os << quadvector.getValue();
+  os << "[ " << quadvector.getValue() << " e1234 ]";
   return os;
 }

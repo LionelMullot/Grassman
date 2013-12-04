@@ -13,13 +13,13 @@ public:
     GCA_quadvector(const GCA_quadvector& other);
     GCA_quadvector(const double value);
 
-    double& getValue();
-
     GCA_quadvector& operator=(const GCA_quadvector& Other);
     GCA_quadvector& operator<<(const double& in);
 
     GCA_antiscalar operator~();
-    double& e1234();
+
+    double& getValue(){ return value; }
+    const double& e1234() const{ return value; }
 
 
 private:

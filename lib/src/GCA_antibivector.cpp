@@ -2,10 +2,16 @@
 #include <iostream>
 
 gca::GCA_antibivector::GCA_antibivector():
-    Eigen::VectorXd(Eigen::VectorXd::Zero(6)) {}
+    Eigen::VectorXd(Eigen::VectorXd::Zero(6)) {
+        setComposantes();
+    }
 
 gca::GCA_antibivector::GCA_antibivector(const gca::GCA_antibivector& other):
-    Eigen::VectorXd(other) {}
+    Eigen::VectorXd(other), composantes(other.composantes) {}
+
+void gca::GCA_antibivector::setComposantes(){
+
+}
 
 gca::GCA_antibivector& gca::GCA_antibivector::operator=(const gca::GCA_antibivector& Other){
     this->Eigen::VectorXd::operator=(Other);

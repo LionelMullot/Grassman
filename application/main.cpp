@@ -23,31 +23,54 @@ void plop (){
 
 int main(){
 
-    std::cout << std::endl << "--------------Scalaires-------------" << std::endl;
+    {//RAII
+        std::cout << std::endl << "--------------Scalaires-------------" << std::endl;
 
-    gca::GCA_scalar a(2.0);
-    gca::GCA_scalar b(3.0);
-    gca::GCA_vector u(1.0,2.0,4.0,1.0);
+        gca::GCA_scalar a(2.0);
+        gca::GCA_scalar b(3.0);
 
-    //SCALAR : Opérateur '='
-    a=b;
-    std::cout << "Operateur '=' : a=b=" << a << std::endl;
+        //SCALAR : Affiche des scalar
+        std::cout << "Affichage a : " << a << " ; Affichage b : " << b << std::endl;
+       
+        //SCALAR : Opérateur '='
+        a=b;
+        std::cout << "Operateur '=' : a=b=" << a << std::endl;
 
-    //SCALAR : Opérateur << (initialisation)
-    gca::GCA_scalar c;
-    c << 4.0;
-    std::cout << "Operateur '<<' (initialisation) : c<<4.0 donne c=" << c << std::endl;
+        //SCALAR : Opérateur << (initialisation)
+        gca::GCA_scalar c;
+        c << 4.0;
+        std::cout << "Operateur '<<' (initialisation) : c<<4.0 donne c=" << c << std::endl;
 
-    //SCALAR : Opérateur '<<' (std::cout)
-    std::cout << "Operateur '<<' (std::cout) : a=" << a << std::endl;
+        //SCALAR : Opérateur wedge '^'
+        gca::GCA_scalar d = a^b;
+        std::cout << "Operateur wedge '^' : d=a^b=" << d <<std::endl;
 
-    //SCALAR : Opérateur wedge '^'
-    gca::GCA_scalar d = a^b;
-    std::cout << "Operateur wedge '^' : d=a^b=" << d <<std::endl;
+        //SCALAR : Opérateur wedge avec vector '^'
+        gca::GCA_vector u(2,1,3,4);
+        std::cout << "Vector u : " << u << std::endl;
+        gca::GCA_vector v = a^u;
+        std::cout << "Operateur wedge avec vector 'a^u' : " << v << std::endl;
 
-    //SCALAR : Opérateur wedge avec vector '^'
-    gca::GCA_vector v = a^u;
-    std::cout << "Operateur wedge avec vector '^' : " << v << std::endl;
+        //SCALAR : Opérateur wedge avec bivector '^'
+        gca::GCA_bivector biu;
+        biu << 2, 1, -5, 2, -2, -4;
+        std::cout << "Bivector biu : " << biu << std::endl;
+        gca::GCA_bivector biv = a^biu;
+        std::cout << "Operateur wedge avec bivector 'a^biu' : " << biv << std::endl;
+
+        //SCALAR : Opérateur wedge avec trivector '^'
+        gca::GCA_trivector triu;
+        triu << 3, 2, -2, 1;
+        std::cout << "Trivector triu : " << triu << std::endl;
+        gca::GCA_trivector triv = a^triu;
+        std::cout << "Operateur wedge avec trivector 'a^triu' : " << triv << std::endl;
+
+        //SCALAR : Opérateur wedge avec quadvector '^'
+        gca::GCA_quadvector qu(-2);
+        std::cout << "Quadvector qu : " << qu << std::endl;
+        gca::GCA_quadvector qv = a^qu;
+        std::cout << "Operateur wedge avec Quadvector 'a^qu' : " << qv << std::endl;
+    }
 
     std::cout << std::endl << "--------------Anti Scalaires-------------" << std::endl;
     gca::GCA_antiscalar antiscalar1;
@@ -77,17 +100,18 @@ int main(){
     gca::GCA_bivector bivec;
     bivec << 1, 2, 3, 4, 5, 6;
 
+    gca::GCA_bivector bivec4(bivec);
+
     gca::GCA_bivector bivec3;
     bivec3 << -4, -8, -2, -4, 0, 2;
 
-    std::cout << "Creation du bivecteur bivec : " << bivec << std::endl;
+    std::cout << "Creation et affichage << du bivecteur bivec4 : " << bivec4 << std::endl;
 
+    //BIVECTOR : affichage composante
+    std::cout << "Affichage composante e13 et e23 du bivec : " << bivec.e13() << " " << bivec.e23() << std::endl;
     //BIVECTOR : opérateur '[]'
     bivec[3] = 4.5;
     std::cout << "Operateur '[]' bivec[3] = 4.5 : " << bivec << std::endl;
-
-    //BIVECTOR : Opérateur '<<' (std::cout)
-    std::cout << "Operateur '<<' (std::cout) bivec : " << bivec << std::endl;
 
     //BIVECTOR : Opérateur '~' (std::cout)
     std::cout << "Operateur '~' (std::cout) bivec3 : " << ~bivec3 << std::endl;

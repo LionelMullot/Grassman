@@ -14,8 +14,7 @@ public:
     GCA_antiscalar(const GCA_antiscalar& other);
     GCA_antiscalar(const double value);
 
-    double& getValue();
-
+    //Opérateur
     GCA_antiscalar& operator=(const GCA_antiscalar& Other);
 
     GCA_antiscalar& operator^(const GCA_antiscalar& Other);
@@ -26,11 +25,14 @@ public:
 
     GCA_quadvector operator~();
 
+    //Affichage
+    friend std::ostream& operator<<(std::ostream& os, GCA_antiscalar& scalar);
+
+    double& getValue(){ return value; }
 
 private:
     double value;
 };
 
-std::ostream& operator<<(std::ostream& os, GCA_antiscalar& scalar);
 }
 

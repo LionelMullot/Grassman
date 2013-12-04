@@ -4,10 +4,20 @@
 #include "GCA_vector.hpp"
 
 gca::GCA_bivector::GCA_bivector():
-    Eigen::VectorXd(Eigen::VectorXd::Zero(6)) {}
+    Eigen::VectorXd(Eigen::VectorXd::Zero(6)) {
+        setComposantes();
+    }
 
 gca::GCA_bivector::GCA_bivector(const gca::GCA_bivector& other):
-    Eigen::VectorXd(other) {}
+    Eigen::VectorXd(other), composantes(other.composantes) {}
+
+void gca::GCA_bivector::setComposantes(){
+    for(uint i = 1; i < 4; ++i){
+        for(uint j = i+1; j <= 4; ++j){
+            composantes.push_back(i*10 + j);
+        }
+    }
+}
 
 gca::GCA_bivector& gca::GCA_bivector::operator=(const gca::GCA_bivector& Other){
     this->Eigen::VectorXd::operator=(Other);
@@ -36,7 +46,8 @@ namespace gca{
 
     std::ostream& operator<<(std::ostream& Stream, const gca::GCA_bivector& in){
         Stream << "[";
-            Stream << in.transpose();
+            for(uint i = 0; i < in.composantes.size(); ++i)
+                Stream << in(i) <<" e" << in.composantes[i] << " ; ";
         Stream << " ]";
         return Stream;
     }
