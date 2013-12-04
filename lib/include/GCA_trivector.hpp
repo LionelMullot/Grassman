@@ -5,10 +5,14 @@
 #include <vector>
 
 #include "GCA_antitrivector.hpp"
+#include "GCA_quadvector.hpp"
 
 namespace gca{
 
 class GCA_antivector;
+class GCA_scalar;
+class GCA_vector;
+class GCA_quadvector;
 
 class GCA_trivector: public Eigen::Vector4d{
 public:
@@ -19,6 +23,10 @@ public:
 
     //Opérateur
     GCA_trivector& operator=(const GCA_trivector& Other);
+
+    GCA_trivector operator^(const GCA_scalar value); //N'est pas const car modifie le trivector appelé
+    GCA_quadvector operator^(const GCA_vector Other) const;
+
     GCA_antivector& operator~(); //Changer le type de retour
 
     //Affichage
@@ -27,7 +35,13 @@ public:
     const double& e123() const{return this[0][0];} 
     const double& e124() const{return this[0][1];} 
     const double& e134() const{return this[0][2];}
-    const double& e234() const{return this[0][3];}
+    const double& e234() const{return this[0][3];} 
+
+    //Récupération
+    double& e123() {return this[0][0];} 
+    double& e124() {return this[0][1];} 
+    double& e134() {return this[0][2];}
+    double& e234() {return this[0][3];}
 
 private:
     /********* Ordre des composantes ********

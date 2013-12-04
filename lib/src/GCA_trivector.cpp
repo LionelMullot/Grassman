@@ -1,4 +1,7 @@
 #include "GCA_trivector.hpp"
+#include "GCA_scalar.hpp"
+#include "GCA_vector.hpp"
+#include "GCA_quadvector.hpp"
 
 gca::GCA_trivector::GCA_trivector():
     Eigen::Vector4d(Eigen::Vector4d::Zero()) {
@@ -25,6 +28,24 @@ void gca::GCA_trivector::setComposantes(){
 
 gca::GCA_trivector& gca::GCA_trivector::operator=(const gca::GCA_trivector& Other){
     this->Eigen::Vector4d::operator=(Other);
+}
+
+gca::GCA_trivector gca::GCA_trivector::operator^(const GCA_scalar value){
+    return value^this[0];
+}
+
+gca::GCA_quadvector gca::GCA_trivector::operator^(const gca::GCA_vector Other) const{
+    gca::GCA_quadvector result;
+    uint size = Other.size()-1;
+    for(uint i = 0; i <= size; ++i){
+        if(i%2 == 0){
+            result.getValue() += this[0][i] * Other[size-i];
+        }
+        else{
+            result.getValue() -= this[0][i] * Other[size-i];
+        }
+    }
+    return result;
 }
 
 gca::GCA_antivector& gca::GCA_trivector::operator~() {}

@@ -9,6 +9,7 @@
 
 namespace gca{
 
+class GCA_scalar;
 class GCA_vector;
 class GCA_antibivector;
 class GCA_quadvector;
@@ -22,9 +23,9 @@ public:
 	//Operateur
     GCA_bivector& operator=(const GCA_bivector& Other);
 
-    GCA_trivector operator^(const GCA_vector& Other);
-
-    GCA_quadvector& operator^(const GCA_bivector& Other); 
+    GCA_bivector operator^(const GCA_scalar& value); //N'est pas const car modifie le bivector appelé
+    GCA_trivector operator^(const GCA_vector& Other) const;
+    GCA_quadvector operator^(const GCA_bivector& Other) const; //Pas sur a 100%
 
     GCA_antibivector operator~(); //Changer le type de retour
 
@@ -37,6 +38,14 @@ public:
     const double& e23() const{return this[0][3];}
     const double& e24() const{return this[0][4];}
     const double& e34() const{return this[0][5];} 
+
+    //Récupération valeur pour modification
+    double& e12() {return this[0][0];} 
+    double& e13() {return this[0][1];} 
+    double& e14() {return this[0][2];}
+    double& e23() {return this[0][3];}
+    double& e24() {return this[0][4];}
+    double& e34() {return this[0][5];} 
 
 private:
     /********* Ordre des composantes ********

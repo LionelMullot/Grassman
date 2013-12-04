@@ -1,4 +1,5 @@
 #include "GCA_vector.hpp"
+#include "GCA_scalar.hpp"
 #include <iostream>
 
 gca::GCA_vector::GCA_vector():
@@ -24,7 +25,11 @@ gca::GCA_vector& gca::GCA_vector::operator=(const gca::GCA_vector& Other){
     this->Eigen::Vector4d::operator=(Other);
 }
 
-gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_vector& Other){
+gca::GCA_vector gca::GCA_vector::operator^(const gca::GCA_scalar& value){
+    return value^this[0];
+}
+
+gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_vector& Other) const{
     gca::GCA_bivector result;
     unsigned int cpt = 0;
     for(unsigned int i = 0; i < Other.size() - 1; ++i){
@@ -32,6 +37,20 @@ gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_vector& Other){
             result[cpt++] = (this[0][i]*Other[j] - this[0][j]*Other[i]);
         }
     }
+    return result;
+}
+
+gca::GCA_trivector gca::GCA_vector::operator^(const gca::GCA_bivector& Other) const{
+    gca::GCA_trivector result = Other^this[0];
+    for(uint i = 0; i < result.size(); ++i){
+        result[i] = -result[i];// a^b = -b^a
+    }
+    return result;
+}
+
+gca::GCA_quadvector gca::GCA_vector::operator^(const gca::GCA_trivector& Other) const{
+    gca::GCA_quadvector result = Other^this[0];
+    result.getValue() = -result.getValue(); // a^b = -b^a
     return result;
 }
 

@@ -3,7 +3,7 @@
 #include <iostream>
 
 gca::GCA_quadvector::GCA_quadvector():
-    value(1){}
+    value(0){}
 
 gca::GCA_quadvector::GCA_quadvector(const gca::GCA_quadvector& other):
     value(other.value){}
@@ -25,7 +25,11 @@ gca::GCA_antiscalar gca::GCA_quadvector::operator~(){
     return result;
 }
 
-std::ostream& gca::operator<<(std::ostream& os, gca::GCA_quadvector& quadvector){
+namespace gca{
+
+std::ostream& operator<<(std::ostream& os, const gca::GCA_quadvector& quadvector){
   os << "[ " << quadvector.getValue() << " e1234 ]";
   return os;
+}
+
 }

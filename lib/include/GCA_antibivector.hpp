@@ -18,7 +18,8 @@ public:
 
     //Opérateur
     GCA_antibivector& operator=(const GCA_antibivector& Other);
-
+   	//Ajouter le wedge ... 
+   	
     GCA_bivector operator~();
 
     //Affichage
@@ -26,8 +27,8 @@ public:
 
 private:
 	/********* Ordre des composantes ********
-	*
-	*	
+	*	(en base dual)
+	*	e34, e24, e23, e14, e13, e12
 	*
 	***/
 
