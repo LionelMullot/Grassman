@@ -17,16 +17,25 @@ public:
     //Operateur
 	GCA_scalar& operator=(const GCA_scalar& Other);
 
-	GCA_scalar& operator^(const GCA_scalar& Other); //N'est pas const car modifie le scalar appelé
+	//Wedge
+	GCA_scalar operator^(const GCA_scalar& Other); //N'est pas const car modifie le scalar appelé
+	GCA_scalar operator^(const GCA_antiscalar& Other); //N'est pas const car modifie le scalar appelé
 
+	//Base 
 	GCA_vector operator^(GCA_vector vector) const;
 	GCA_bivector operator^(GCA_bivector bivector) const;
 	GCA_trivector operator^(GCA_trivector trivector) const;
 	GCA_quadvector operator^(GCA_quadvector quadvector) const;
 
+	//Base dual
+	GCA_antiquadvector operator^(GCA_antiquadvector antiquadvector) const;
+	GCA_antitrivector operator^(GCA_antitrivector antitrivector) const;
+	GCA_antibivector operator^(GCA_antibivector antibivector) const;
+	GCA_antivector operator^(GCA_antivector antivector) const;
+
     GCA_scalar& operator<<(const double& in);
 
-    GCA_antiquadvector operator~();
+    GCA_antiquadvector operator~() const;
 
     //Affichage 
     friend std::ostream& operator<<(std::ostream& os, const GCA_scalar& scalar);

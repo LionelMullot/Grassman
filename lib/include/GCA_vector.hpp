@@ -10,8 +10,11 @@ namespace gca{
 
 class GCA_scalar;
 class GCA_bivector;
+class GCA_trivector;
 class GCA_quadvector;
 class GCA_antitrivector;
+class GCA_antibivector;
+class GCA_antiquadvector;
 
 class GCA_vector : public Eigen::Vector4d{
 public:
@@ -23,12 +26,20 @@ public:
     //Opérateur
     GCA_vector& operator=(const GCA_vector& Other);
 
+    //Wedge
     GCA_vector operator^(const GCA_scalar& value); //N'est pas const car modifie le vector appelé
+
+    //Base
     GCA_bivector operator^(const GCA_vector& Other) const;
     GCA_trivector operator^(const GCA_bivector& Other) const;
     GCA_quadvector operator^(const GCA_trivector& Other) const;
 
-    GCA_antitrivector& operator~(); //A faire
+    //Base dual
+    GCA_bivector operator^(const GCA_antitrivector& Other) const;
+    GCA_trivector operator^(const GCA_antibivector& Other) const;
+    GCA_quadvector operator^(const GCA_antivector& Other) const;
+
+    GCA_antitrivector& operator~() const; //A faire
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_vector& in);

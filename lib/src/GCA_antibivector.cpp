@@ -21,7 +21,7 @@ gca::GCA_antibivector& gca::GCA_antibivector::operator=(const gca::GCA_antibivec
     this->Eigen::VectorXd::operator=(Other);
 }
 
-gca::GCA_bivector gca::GCA_antibivector::operator~() {
+gca::GCA_bivector gca::GCA_antibivector::operator~() const{
     gca::GCA_bivector result;
     result << this[0][5], -this[0][4], this[0][3], this[0][2], -this[0][1], this[0][0];
     return result;

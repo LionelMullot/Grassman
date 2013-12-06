@@ -19,7 +19,7 @@ gca::GCA_quadvector& gca::GCA_quadvector::operator<<(const double& in){
     this->value = in;
 }
 
-gca::GCA_antiscalar gca::GCA_quadvector::operator~(){
+gca::GCA_antiscalar gca::GCA_quadvector::operator~() const{
     gca::GCA_antiscalar result;
     result = this->value;
     return result;

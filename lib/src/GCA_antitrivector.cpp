@@ -26,7 +26,7 @@ gca::GCA_antitrivector& gca::GCA_antitrivector::operator=(const gca::GCA_antitri
     this->Eigen::Vector4d::operator=(Other);
 }
 
-gca::GCA_vector& gca::GCA_antitrivector::operator~() {}
+gca::GCA_vector& gca::GCA_antitrivector::operator~() const{}
 
 namespace gca{
 

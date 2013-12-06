@@ -1,11 +1,6 @@
+#include "grassmannCayley.hpp"
 #include <iostream>
-#include <GCA_scalar.hpp>
-#include <GCA_antiscalar.hpp>
-#include <GCA_vector.hpp>
-#include <GCA_bivector.hpp>
-#include <GCA_trivector.hpp>
-#include <GCA_quadvector.hpp>
-#include <GCA_antiquadvector.hpp>
+
 
 void plop (){
     gca :: GCA_vector a (1.0 ,2.0 ,3.0 ,1.0);
@@ -70,6 +65,38 @@ int main(){
         std::cout << "Quadvector qu : " << qu << std::endl;
         gca::GCA_quadvector qv = a^qu;
         std::cout << "Operateur wedge avec Quadvector 'a^qu' : " << qv << std::endl;
+
+        //SCALAR : Opérateur wedge avec antiquadvector '^'
+        gca::GCA_antiquadvector aqu(2);
+        std::cout << "Antiquadvector aqu : " << aqu << std::endl;
+        gca::GCA_antiquadvector aqv = a^aqu;
+        std::cout << "Operateur wedge avec Antiquadvector 'a^aqu' : " << aqv << std::endl;
+
+        //SCALAR : Opérateur wedge avec antitrivector '^'
+        gca::GCA_antitrivector atriu;
+        atriu << 2, 3, -1, 1;
+        std::cout << "Antitrivector qu : " << atriu << std::endl;
+        gca::GCA_antitrivector atriv = a^atriu;
+        std::cout << "Operateur wedge avec Antitrivector 'a^atriv' : " << atriv << std::endl;
+
+        //SCALAR : Opérateur wedge avec antibivector '^'
+        gca::GCA_antibivector abiu;
+        abiu << 4, 2, 7, -2, 1, 3;
+        std::cout << "Antibivector abiu : " << abiu << std::endl;
+        gca::GCA_antibivector abiv = a^abiu;
+        std::cout << "Operateur wedge avec Antibivector 'a^abiu' : " << abiv << std::endl;
+
+        //SCALAR : Opérateur wedge avec antivector '^'
+        gca::GCA_antivector au(-2,2,8,1);
+        std::cout << "Antivector qu : " << au << std::endl;
+        gca::GCA_antivector av = a^au;
+        std::cout << "Operateur wedge avec Antivector 'a^au' : " << av << std::endl;
+
+        //SCALAR : Opérateur wedge avec antiscalar '^'
+        gca::GCA_antiscalar aa(-2);
+        std::cout << "Antiscalar aa : " << aa << std::endl;
+        b = a^aa;
+        std::cout << "Operateur wedge avec antiscalar 'a^aa' : " << b << std::endl;
     }
 
     {

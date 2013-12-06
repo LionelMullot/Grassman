@@ -1,6 +1,8 @@
 #include "GCA_scalar.hpp"
 #include "GCA_antiquadvector.hpp"
+#include "GCA_antiscalar.hpp"
 #include "GCA_quadvector.hpp"
+#include "GCA_antivector.hpp"
 #include <iostream>
 
 gca::GCA_scalar::GCA_scalar():
@@ -16,8 +18,12 @@ gca::GCA_scalar& gca::GCA_scalar::operator=(const gca::GCA_scalar& Other){
     this->value = Other.value;
 }
 
-gca::GCA_scalar& gca::GCA_scalar::operator^(const gca::GCA_scalar& Other){
-    this->value *= Other.value;
+gca::GCA_scalar gca::GCA_scalar::operator^(const gca::GCA_scalar& Other){
+    return this->value * Other.value;
+}
+
+gca::GCA_scalar gca::GCA_scalar::operator^(const gca::GCA_antiscalar& Other){
+    return this->value * Other.getValue();
 }
 
 gca::GCA_vector gca::GCA_scalar::operator^(gca::GCA_vector vector) const{ 
@@ -46,11 +52,37 @@ gca::GCA_quadvector gca::GCA_scalar::operator^(gca::GCA_quadvector quadvector) c
     return quadvector;
 }
 
+gca::GCA_antiquadvector gca::GCA_scalar::operator^(gca::GCA_antiquadvector antiquadvector) const{
+    antiquadvector.getValue() *= this->value;
+    return antiquadvector;
+}
+
+gca::GCA_antitrivector gca::GCA_scalar::operator^(gca::GCA_antitrivector antitrivector) const{
+    for(unsigned int i = 0; i < antitrivector.size(); ++i){
+        antitrivector[i] *= this->value;
+    }
+    return antitrivector;
+}
+
+gca::GCA_antibivector gca::GCA_scalar::operator^(gca::GCA_antibivector antibivector) const{
+    for(unsigned int i = 0; i < antibivector.size(); ++i){
+        antibivector[i] *= this->value;
+    }
+    return antibivector;
+}
+
+gca::GCA_antivector gca::GCA_scalar::operator^(gca::GCA_antivector antivector) const{
+    for(unsigned int i = 0; i < antivector.size(); ++i){
+        antivector[i] *= this->value;
+    }
+    return antivector;
+}
+
 gca::GCA_scalar& gca::GCA_scalar::operator<<(const double& in){
     this->value = in;
 }
 
-gca::GCA_antiquadvector gca::GCA_scalar::operator~(){
+gca::GCA_antiquadvector gca::GCA_scalar::operator~() const{
     gca::GCA_antiquadvector result;
     result << this[0].value;
     return result;

@@ -23,12 +23,13 @@ public:
 
     GCA_antiscalar& operator<<(const double& in);
 
-    GCA_quadvector operator~();
+    GCA_quadvector operator~() const;
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& os, GCA_antiscalar& scalar);
 
     double& getValue(){ return value; }
+    const double& getValue() const{ return value; }
 
 private:
     double value;

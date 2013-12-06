@@ -20,7 +20,7 @@ public:
     GCA_antibivector& operator=(const GCA_antibivector& Other);
    	//Ajouter le wedge ... 
    	
-    GCA_bivector operator~();
+    GCA_bivector operator~() const;
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_antibivector& in);

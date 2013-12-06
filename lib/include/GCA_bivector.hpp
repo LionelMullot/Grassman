@@ -27,7 +27,7 @@ public:
     GCA_trivector operator^(const GCA_vector& Other) const;
     GCA_quadvector operator^(const GCA_bivector& Other) const; //Pas sur a 100%
 
-    GCA_antibivector operator~(); //Changer le type de retour
+    GCA_antibivector operator~() const; //Changer le type de retour
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_bivector& in);

@@ -1,5 +1,6 @@
 #include "GCA_vector.hpp"
 #include "GCA_scalar.hpp"
+#include "GCA_antivector.hpp"
 #include <iostream>
 
 gca::GCA_vector::GCA_vector():
@@ -54,7 +55,22 @@ gca::GCA_quadvector gca::GCA_vector::operator^(const gca::GCA_trivector& Other) 
     return result;
 }
 
-gca::GCA_antitrivector& gca::GCA_vector::operator~() {}
+gca::GCA_bivector gca::GCA_vector::operator^(const gca::GCA_antitrivector& Other) const{
+    gca::GCA_vector result = ~Other;
+    return this[0]^result;
+}
+
+gca::GCA_trivector gca::GCA_vector::operator^(const gca::GCA_antibivector& Other) const{
+    gca::GCA_bivector result = ~Other;
+    return this[0]^result;
+}
+
+gca::GCA_quadvector gca::GCA_vector::operator^(const gca::GCA_antivector& Other) const{
+    gca::GCA_trivector result = ~Other;
+    return this[0]^result;
+}
+
+gca::GCA_antitrivector& gca::GCA_vector::operator~() const{}
 
 namespace gca{
 

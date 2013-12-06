@@ -18,7 +18,7 @@ public:
     //Opérateur
     GCA_antitrivector& operator=(const GCA_antitrivector& Other);
 
-    GCA_vector& operator~();
+    GCA_vector& operator~() const;
 
     //Affichage
 
