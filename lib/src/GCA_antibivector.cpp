@@ -1,4 +1,4 @@
-#include "GCA_antibivector.hpp"
+#include "grassmannCayley.hpp"
 #include <iostream>
 
 gca::GCA_antibivector::GCA_antibivector():

@@ -1,11 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "GCA_vector.hpp"
 
 namespace gca{
-
-class GCA_antiquadvector;
 
 class GCA_antiscalar{
 public:

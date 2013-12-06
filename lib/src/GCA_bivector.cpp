@@ -1,9 +1,5 @@
-#include "GCA_bivector.hpp"
+#include "grassmannCayley.hpp"
 #include <iostream>
-
-#include "GCA_scalar.hpp"
-#include "GCA_vector.hpp"
-#include "GCA_quadvector.hpp"
 
 gca::GCA_bivector::GCA_bivector():
     Eigen::VectorXd(Eigen::VectorXd::Zero(6)) {

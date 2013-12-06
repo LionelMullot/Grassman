@@ -4,8 +4,6 @@
 
 namespace gca{
 
-class GCA_scalar;
-
 class GCA_antiquadvector{
 public:
     //Constructeur

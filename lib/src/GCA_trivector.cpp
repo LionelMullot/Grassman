@@ -1,7 +1,4 @@
-#include "GCA_trivector.hpp"
-#include "GCA_scalar.hpp"
-#include "GCA_vector.hpp"
-#include "GCA_quadvector.hpp"
+#include "grassmannCayley.hpp"
 
 gca::GCA_trivector::GCA_trivector():
     Eigen::Vector4d(Eigen::Vector4d::Zero()) {

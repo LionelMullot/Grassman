@@ -1,6 +1,4 @@
-#include "GCA_vector.hpp"
-#include "GCA_scalar.hpp"
-#include "GCA_antivector.hpp"
+#include "grassmannCayley.hpp"
 #include <iostream>
 
 gca::GCA_vector::GCA_vector():

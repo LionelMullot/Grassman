@@ -1,4 +1,4 @@
-#include "GCA_antitrivector.hpp"
+#include "grassmannCayley.hpp"
 #include <iostream>
 
 gca::GCA_antitrivector::GCA_antitrivector():

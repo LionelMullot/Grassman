@@ -2,12 +2,9 @@
 
 #include <Eigen/Dense>
 #include <Eigen/QR>
-
 #include <vector>
 
 namespace gca{
-
-class GCA_trivector;
 
 class GCA_antivector: public Eigen::Vector4d{
 public:

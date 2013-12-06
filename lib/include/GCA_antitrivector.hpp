@@ -6,8 +6,6 @@
 
 namespace gca{
 
-class GCA_vector;
-
 class GCA_antitrivector: public Eigen::Vector4d{
 public:
 	//Constructeur

@@ -4,15 +4,7 @@
 #include <Eigen/QR>
 #include <vector>
 
-#include "GCA_antitrivector.hpp"
-#include "GCA_quadvector.hpp"
-
 namespace gca{
-
-class GCA_antivector;
-class GCA_scalar;
-class GCA_vector;
-class GCA_quadvector;
 
 class GCA_trivector: public Eigen::Vector4d{
 public:

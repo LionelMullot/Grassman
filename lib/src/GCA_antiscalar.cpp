@@ -1,5 +1,4 @@
-#include "GCA_antiscalar.hpp"
-#include "GCA_quadvector.hpp"
+#include "grassmannCayley.hpp"
 #include <iostream>
 
 gca::GCA_antiscalar::GCA_antiscalar():

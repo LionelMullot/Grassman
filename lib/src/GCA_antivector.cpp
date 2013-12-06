@@ -1,5 +1,4 @@
-#include "GCA_antivector.hpp"
-#include "GCA_trivector.hpp"
+#include "grassmannCayley.hpp"
 
 gca::GCA_antivector::GCA_antivector():
     Eigen::Vector4d(Eigen::Vector4d::Zero()) {
