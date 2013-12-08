@@ -19,9 +19,11 @@ public:
 
     //Affichage
 
-    friend std::ostream& operator<<(std::ostream& os, GCA_antiquadvector& antiquadvector);
+    friend std::ostream& operator<<(std::ostream& os, const GCA_antiquadvector& antiquadvector);
 
     double& getValue(){ return value; }
+    const double& getValue() const{ return value; }
+    double& e1234() { return value; }
     const double& e1234() const{ return value; }
 
 private:

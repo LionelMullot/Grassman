@@ -29,8 +29,8 @@ public:
     GCA_trivector operator^(const GCA_antibivector& Other) const;
     GCA_quadvector operator^(const GCA_antivector& Other) const;
 
-    GCA_antitrivector& operator~() const; //A faire
-
+    GCA_antitrivector operator~() const;
+    
     //Affichage
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_vector& in);
 

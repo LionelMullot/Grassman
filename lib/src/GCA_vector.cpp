@@ -68,7 +68,11 @@ gca::GCA_quadvector gca::GCA_vector::operator^(const gca::GCA_antivector& Other)
     return this[0]^result;
 }
 
-gca::GCA_antitrivector& gca::GCA_vector::operator~() const{}
+gca::GCA_antitrivector gca::GCA_vector::operator~() const{
+    gca::GCA_antitrivector result;
+    result << -this[0][3], this[0][2], -this[0][1], this[0][0];
+    return result;
+}
 
 namespace gca{
 

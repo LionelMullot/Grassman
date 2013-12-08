@@ -19,7 +19,7 @@ public:
     GCA_trivector operator^(const GCA_scalar value); //N'est pas const car modifie le trivector appelé
     GCA_quadvector operator^(const GCA_vector Other) const;
 
-    GCA_antivector& operator~() const; //Changer le type de retour
+    GCA_antivector operator~() const;
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_trivector& in);

@@ -16,9 +16,11 @@ gca::GCA_antitrivector::GCA_antitrivector(const gca::GCA_antitrivector& other):
 
 void gca::GCA_antitrivector::setComposantes(){
     for(uint i = 1; i < 3; ++i){
-    	for(uint j = i+1; j < 4; ++j)
-    		for(uint k = j+1; k < 4; ++k)
+    	for(uint j = i+1; j < 4; ++j){
+    		for(uint k = j+1; k < 5; ++k){
          		composantes.push_back(i*100 + j*10 + k);
+            }
+        }
     }
 }
 
@@ -31,10 +33,10 @@ gca::GCA_vector& gca::GCA_antitrivector::operator~() const{}
 namespace gca{
 
     std::ostream& operator<<(std::ostream& Stream, const gca::GCA_antitrivector& in){
-        Stream << "[";
+        Stream << "[ ";
             for(uint i = 0; i < in.composantes.size(); ++i)
                 Stream << in(i) <<" e" << in.composantes[i] << " ; ";
-        Stream << " ]";
+        Stream << "]";
         return Stream;
     }
 

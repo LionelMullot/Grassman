@@ -26,9 +26,9 @@ gca::GCA_scalar gca::GCA_antiquadvector::operator~() const{
 
 namespace gca{
 
-std::ostream& operator<<(std::ostream& os, gca::GCA_antiquadvector& antiquadvector){
-  os << antiquadvector.getValue();
-  return os;
+std::ostream& operator<<(std::ostream& os, const gca::GCA_antiquadvector& antiquadvector){
+    os << "[ " << antiquadvector.getValue() << " e1234 ]";
+    return os;
 }
 
 }

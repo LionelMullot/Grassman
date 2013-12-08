@@ -97,11 +97,14 @@ int main(){
         std::cout << "Antiscalar aa : " << aa << std::endl;
         b = a^aa;
         std::cout << "Operateur wedge avec antiscalar 'a^aa' : " << b << std::endl;
+
+        //SCALAR : Opérateur ~
+        std::cout << "Base dual de a : " << ~a << std::endl;
     }
 
     {
         std::cout << std::endl << "--------------Vectors-------------" << std::endl;
-        gca::GCA_vector u (1.0 ,2.0 ,3.0 ,1.0);
+        gca::GCA_vector u (1.0 ,2.0 ,3.5 ,1.0);
         gca::GCA_vector v;
         v << 3.0 , 2.0 , 1.0 , 1.0;
         gca::GCA_vector w;
@@ -129,10 +132,22 @@ int main(){
         std::cout << "Operateur wedge avec vector : \n u^v = " << (u^v) << "\n v^u = " << (v^u) << std::endl;
 
         //VECTOR : opérateur wedge avec bivector '^'
-        std::cout << "Operateur wedge avec bivector : \n w^(u^v) = " << (w^(u^v)) << "\n (u^v)^w " << ((u^v)^w) << std::endl;
+        std::cout << "Operateur wedge avec bivector : \n w^(u^v) = " << (w^(u^v)) << "\n (u^v)^w = " << ((u^v)^w) << std::endl;
 
         //VECTOR : opérateur wedge avec trivector '^'
-        std::cout << "Operateur wedge avec trivector : \n s^(w^(u^v))" << (s^(w^(u^v))) << "\n (w^(u^v))^s " << ((w^(u^v))^s) <<  std::endl;
+        std::cout << "Operateur wedge avec trivector : \n s^(w^(u^v)) = " << (s^(w^(u^v))) << "\n (w^(u^v))^s = " << ((w^(u^v))^s) <<  std::endl;
+
+        //VECTOR : opérateur wedge avec antivector '^'
+        std::cout << "Operateur wedge avec antivector : \n s^(~(w^(u^v))) = " << (s^(~(w^(u^v)))) << "\n (~(w^(u^v)))^s = " << /*((~(w^(u^v)))^s) << */std::endl;
+
+        //VECTOR : opérateur wedge avec antibivector '^'
+        std::cout << "Operateur wedge avec antibivector : \n s^(~(u^v)) = " << (s^(~(u^v))) << "\n (~(u^v))^s = " << /*((~(u^v))^s) <<  */ std::endl;
+
+        //VECTOR : opérateur wedge avec antitrivector '^'
+        std::cout << "Operateur wedge avec antitrivector : \n s^~v = " << (s^~v) << "\n ~v^s " << /*~v^s << */  std::endl;
+
+        //VECTOR : opérateur ~
+        std::cout << "Base dual de v : " << ~v << std::endl;
     }
 
     {

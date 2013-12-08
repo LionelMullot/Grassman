@@ -34,7 +34,7 @@ public:
 
     GCA_antiquadvector operator~() const;
 
-    //Affichage 
+    //Affichage
     friend std::ostream& operator<<(std::ostream& os, const GCA_scalar& scalar);
 
     const double& getValue() const{ return value; }
