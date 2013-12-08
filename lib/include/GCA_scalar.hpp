@@ -24,7 +24,7 @@ public:
 	GCA_trivector operator^(GCA_trivector trivector) const;
 	GCA_quadvector operator^(GCA_quadvector quadvector) const;
 
-	//Base dual
+    //Base duale
 	GCA_antiquadvector operator^(GCA_antiquadvector antiquadvector) const;
 	GCA_antitrivector operator^(GCA_antitrivector antitrivector) const;
 	GCA_antibivector operator^(GCA_antibivector antibivector) const;

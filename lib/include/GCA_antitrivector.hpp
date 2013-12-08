@@ -16,7 +16,7 @@ public:
     //Opérateur
     GCA_antitrivector& operator=(const GCA_antitrivector& Other);
 
-    GCA_vector& operator~() const;
+    GCA_vector operator~() const;
 
     //Affichage
 
@@ -33,7 +33,7 @@ private:
 	*	e123, e124, e134, e234
 	*
 	***/
-	std::vector<uint> composantes;
+    std::vector<unsigned int> composantes;
 
 	void setComposantes();
 };

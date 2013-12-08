@@ -28,7 +28,7 @@ private:
 	*
 	***/
 
-	std::vector<uint> composantes;
+    std::vector<unsigned int> composantes;
 
 	void setComposantes();
 };

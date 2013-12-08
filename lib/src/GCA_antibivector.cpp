@@ -10,8 +10,8 @@ gca::GCA_antibivector::GCA_antibivector(const gca::GCA_antibivector& other):
     Eigen::VectorXd(other), composantes(other.composantes) {}
 
 void gca::GCA_antibivector::setComposantes(){
-    for(uint i = 3; i > 0; --i){
-        for(uint j = 4; j > i; --j){
+    for(unsigned int i = 3; i > 0; --i){
+        for(unsigned int j = 4; j > i; --j){
             composantes.push_back(i*10 + j);
         }
     }
@@ -31,7 +31,7 @@ namespace gca{
 
     std::ostream& operator<<(std::ostream& Stream, const gca::GCA_antibivector& in){
         Stream << "[";
-            for(uint i = 0; i < in.composantes.size(); ++i)
+            for(unsigned int i = 0; i < in.composantes.size(); ++i)
                 Stream << in(i) <<" e" << in.composantes[i] << " ; ";
         Stream << " ]";
         return Stream;

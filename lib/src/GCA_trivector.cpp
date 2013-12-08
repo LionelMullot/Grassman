@@ -14,9 +14,9 @@ gca::GCA_trivector::GCA_trivector(const gca::GCA_trivector& other):
     Eigen::Vector4d(other), composantes(other.composantes) {}
 
 void gca::GCA_trivector::setComposantes(){
-    for(uint i = 1; i < 3; ++i){
-        for(uint j = i+1; j < 4; ++j){
-        	for(uint k = j+1; k < 5; ++k){
+    for(unsigned int i = 1; i < 3; ++i){
+        for(unsigned int j = i+1; j < 4; ++j){
+            for(unsigned int k = j+1; k < 5; ++k){
             	composantes.push_back(i*100 + j*10 + k);
         	}
         }
@@ -33,8 +33,8 @@ gca::GCA_trivector gca::GCA_trivector::operator^(const GCA_scalar value){
 
 gca::GCA_quadvector gca::GCA_trivector::operator^(const gca::GCA_vector Other) const{
     gca::GCA_quadvector result;
-    uint size = Other.size()-1;
-    for(uint i = 0; i <= size; ++i){
+    unsigned int size = Other.size()-1;
+    for(unsigned int i = 0; i <= size; ++i){
         if(i%2 == 0){
             result.getValue() += this[0][i] * Other[size-i];
         }
@@ -55,7 +55,7 @@ namespace gca{
 
     std::ostream& operator<<(std::ostream& Stream, const gca::GCA_trivector& in){
        Stream << "[";
-            for(uint i = 0; i < in.composantes.size(); ++i)
+            for(unsigned int i = 0; i < in.composantes.size(); ++i)
                 Stream << " " << in(i) <<" e" << in.composantes[i] << " ;";
         Stream << " ]";
         return Stream;

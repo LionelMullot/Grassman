@@ -115,7 +115,7 @@ int main(){
 
         //VECTOR : Opérateur '='
         w = v;
-        std::cout << "Opérateur '=' : w=v=" << w << std::endl;
+        std::cout << "Operateur '=' : w=v=" << w << std::endl;
 
         //VECTOR : opérateur '[]'
         w[0] = 4.0;
@@ -152,23 +152,22 @@ int main(){
 
     {
         std::cout << std::endl << "--------------Bivectors-------------" << std::endl;
-
         gca::GCA_bivector bivec;
         bivec << 1, 2, 3, 4, 5, 6;
-
         gca::GCA_bivector bivec2(bivec);
+        gca::GCA_bivector bivec3(bivec);
 
-        gca::GCA_bivector bivec3 = bivec2;
 
         //BIVECTOR : Affiche des bivectors
         std::cout << "Creation et affichage des bivecteurs : \n bivec = " << bivec << "\n bivec2 = " << bivec2 << "\n bivec3 = " << bivec3 << std::endl;
 
-        //BIVECTOR : affichage composante
-        std::cout << "Affichage composante : \n e13 : " << bivec.e13() << "\n e23 : " << bivec.e23() << std::endl;
+        //BIVECTOR : opérateur '='
+        bivec2 = bivec;
+        std::cout << "Operateur '=' : bivec2=bivec=" << bivec2 << std::endl;
 
         //BIVECTOR : opérateur '[]'
-        bivec[3] = 4.5;
-        std::cout << "Operateur '[]' bivec[3] = 4.5 : " << bivec << std::endl;
+        bivec2[0] = 4.0;
+        std::cout << "Operateur '[]' bivec2[0] = 4.0 : " << bivec2 << std::endl;
 
         //BIVECTOR : modification par composante
         bivec.e13() = -2;
@@ -183,10 +182,17 @@ int main(){
         std::cout << "Operateur wedge avec vector : \n bivec^u = " << (bivec^u) << "\n u^bivec = " << (u^bivec) << std::endl;
 
         //BIVECTOR : Operateur wedge avec bivector '^'
+        bivec << 1.0, 2.0, 3.0, 4.0, 5.0, 6.0;
+        bivec2 << 2.0, 3.0, 4.0, 6.0, 5.0, 4.0;
         std::cout << "Operateur wedge avec bivector : \n bivec^bivec2 = " << (bivec^bivec2) << "\n bivec2^bivec = " << (bivec2^bivec) << std::endl;
 
-        //BIVECTOR : Opérateur '~' (std::cout)
-        std::cout << "Operateur '~' (std::cout) bivec3 : " << ~bivec3 << std::endl;
+        //BIVECTOR : opérateur wedge avec antibivector '^'
+        bivec << 1.0, 2.0, 3.0, 4.0, 5.0, 6.0;
+        bivec2 << 2.0, 3.0, 4.0, 6.0, 5.0, 4.0;
+        std::cout << "Operateur wedge avec antibivector : \n bivec^(~bivec2) = " << (bivec^(~bivec2)) << "\n (~bivec2)^ bivec2 = " << std::endl;
+
+        //BIVECTOR : opérateur ~
+        std::cout << "Base duale de bivec : " << ~bivec << std::endl;
     }
 
     {

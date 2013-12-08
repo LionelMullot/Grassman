@@ -51,7 +51,7 @@ private:
     *   e1, e2, e3, e4
     *
     ***/
-	std::vector<uint> composantes;
+    std::vector<unsigned int> composantes;
 
 	void setComposantes();
 };

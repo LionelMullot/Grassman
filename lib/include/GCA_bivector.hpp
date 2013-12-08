@@ -17,7 +17,8 @@ public:
 
     GCA_bivector operator^(const GCA_scalar& value); //N'est pas const car modifie le bivector appelé
     GCA_trivector operator^(const GCA_vector& Other) const;
-    GCA_quadvector operator^(const GCA_bivector& Other) const; //Pas sur a 100%
+    GCA_quadvector operator^(const GCA_bivector& Other) const;
+    GCA_quadvector operator^(const GCA_antibivector& Other) const;
 
     GCA_antibivector operator~() const; //Changer le type de retour
 
@@ -46,7 +47,7 @@ private:
     *
     ***/
     
-	std::vector<uint> composantes;
+    std::vector<unsigned int> composantes;
 
 	void setComposantes();
 };

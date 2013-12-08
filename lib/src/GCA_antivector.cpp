@@ -14,7 +14,7 @@ gca::GCA_antivector::GCA_antivector(const gca::GCA_antivector& other):
     Eigen::Vector4d(other), composantes(other.composantes) {}
 
 void gca::GCA_antivector::setComposantes(){
-    for(uint i = 1; i < 5; ++i){
+    for(unsigned int i = 1; i < 5; ++i){
          composantes.push_back(i);
     }
 }
@@ -29,7 +29,7 @@ namespace gca{
 
     std::ostream& operator<<(std::ostream& Stream, const gca::GCA_antivector& in){
         Stream << "[";
-            for(uint i = 0; i < in.composantes.size(); ++i)
+            for(unsigned int i = 0; i < in.composantes.size(); ++i)
                 Stream << in(i) <<" e" << in.composantes[i] << " ; ";
         Stream << " ]";
         return Stream;
