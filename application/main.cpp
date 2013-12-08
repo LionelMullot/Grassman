@@ -189,7 +189,13 @@ int main(){
         //BIVECTOR : opérateur wedge avec antibivector '^'
         bivec << 1.0, 2.0, 3.0, 4.0, 5.0, 6.0;
         bivec2 << 2.0, 3.0, 4.0, 6.0, 5.0, 4.0;
-        std::cout << "Operateur wedge avec antibivector : \n bivec^(~bivec2) = " << (bivec^(~bivec2)) << "\n (~bivec2)^ bivec2 = " << std::endl;
+        std::cout << "Operateur wedge avec antibivector : \n bivec^(~bivec2) = " << (bivec^(~bivec2)) << "\n (~bivec2)^ bivec = " << std::endl;
+
+        //BIVECTOR : opérateur wedge avec antitrivector '^'
+        bivec << 1.0, 2.0, 3.0, 4.0, 5.0, 6.0;
+        gca::GCA_vector vec;
+        vec << 2.0, 3.0, 4.0, 5.0;
+        std::cout << "Operateur wedge avec antitrivector : \n bivec^(~vec) = " << (bivec^(~vec)) << "\n (~vec)^ bivec = " << std::endl;
 
         //BIVECTOR : opérateur ~
         std::cout << "Base duale de bivec : " << ~bivec << std::endl;

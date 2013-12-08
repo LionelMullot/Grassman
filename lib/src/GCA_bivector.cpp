@@ -50,6 +50,10 @@ gca::GCA_quadvector gca::GCA_bivector::operator^(const gca::GCA_antibivector& Ot
     GCA_bivector result = ~Other;
     return this[0]^result;
 }
+gca::GCA_trivector gca::GCA_bivector::operator^(const gca::GCA_antitrivector& Other) const{
+    GCA_vector result = ~Other;
+    return this[0]^result;
+}
 
 gca::GCA_antibivector gca::GCA_bivector::operator~() const{
     gca::GCA_antibivector result;
