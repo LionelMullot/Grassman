@@ -126,6 +126,7 @@ int main(){
         std::cout << "Modification par composante w.e1() = -2 : " << w << std::endl;
 
         //VECTOR : opérateur wedge avec scalar '^'
+        //Interdit à mon avis, déclarer un scalar avant.
         //std::cout << "Operateur wedge avec scalar 'w^2' : " << (w^2) << std::endl;
 
         //VECTOR : opérateur wedge avec vector '^'
@@ -174,7 +175,8 @@ int main(){
         std::cout << "Modification par composante bivec.e13() = -2 : " << bivec << std::endl;
 
         //BIVECTOR : Operateur wedge avec scalar '^'
-        std::cout << "Operateur wedge avec scalar : \n bivec^2 = " << (bivec^2) << std::endl;
+        //Interdit à mon avis, déclarer un scalar avant.
+        // std::cout << "Operateur wedge avec scalar : \n bivec^2 = " << (bivec^2) << std::endl;
 
         //BIVECTOR : Operateur wedge avec vector '^'
         gca::GCA_vector u(1.0,2.0,3.0,1.0);

@@ -23,6 +23,7 @@ public:
     //Wedges Base duale
     GCA_quadvector operator^(const GCA_antibivector& Other) const;
     GCA_trivector operator^(const GCA_antitrivector& Other) const;
+    GCA_bivector operator^(const GCA_antiquadvector& Other);
 
     GCA_antibivector operator~() const; //Changer le type de retour
 
