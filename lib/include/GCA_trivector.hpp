@@ -20,6 +20,10 @@ public:
     GCA_trivector operator^(const GCA_scalar value); //N'est pas const car modifie le trivector appelé
     GCA_quadvector operator^(const GCA_vector Other) const;
 
+    //Wedge base duale
+    GCA_quadvector operator^(const GCA_antitrivector Other) const;
+    GCA_trivector operator^(const GCA_antiquadvector value);
+
     GCA_antivector operator~() const;
 
     //Affichage

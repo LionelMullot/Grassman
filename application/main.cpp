@@ -205,19 +205,18 @@ int main(){
 
     {
         std::cout << std::endl << "--------------Trivectors-------------" << std::endl;
-
         gca::GCA_trivector tv1;
         tv1 << 1, 2, 3, 4;
-
-        gca::GCA_trivector tv2(tv1);
+        gca::GCA_trivector tv2;
 
         gca::GCA_trivector tv3 = tv2;
 
         //TRIVECTOR : Affiche des bivectors
         std::cout << "Creation et affichage des trivecteurs : \n tv1 = " << tv1 << "\n tv2 = " << tv2 << "\n tv3 = " << tv3 << std::endl;
 
-        //TRIVECTOR : affichage composante
-        std::cout << "Affichage composante : \n e123 : " << tv1.e123() << "\n e124 : " << tv1.e124() << std::endl;
+        //TRIVECTOR : opérateur '='
+        tv2 = tv1;
+        std::cout << "Operateur '=' : tv2=tv1=" << tv2 << std::endl;
 
         //TRIVECTOR : opérateur '[]'
         tv1[3] = 4.5;
@@ -228,7 +227,7 @@ int main(){
         std::cout << "Modification par composante tv1.e123() = -2 : " << tv1 << std::endl;
 
         //TRIVECTOR : Operateur wedge avec scalar '^'
-        std::cout << "Operateur wedge avec scalar : \n tv1^2 = " << (tv1^2) << std::endl;
+        //std::cout << "Operateur wedge avec scalar : \n tv1^2 = " << (tv1^2) << std::endl;
 
         //TRIVECTOR : Operateur wedge avec vector '^'
         gca::GCA_vector u(1.0,2.0,3.0,1.0);
