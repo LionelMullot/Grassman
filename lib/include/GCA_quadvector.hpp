@@ -15,6 +15,9 @@ public:
     GCA_quadvector& operator=(const GCA_quadvector& Other);
     GCA_quadvector& operator<<(const double& in);
 
+    GCA_quadvector operator^(const GCA_scalar value);
+    GCA_quadvector operator^(const GCA_antiquadvector value);
+
     GCA_antiscalar operator~() const;
 
     //Affichage
