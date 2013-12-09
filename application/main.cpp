@@ -127,7 +127,8 @@ int main(){
 
         //VECTOR : opérateur wedge avec scalar '^'
         //Interdit à mon avis, déclarer un scalar avant.
-        //std::cout << "Operateur wedge avec scalar 'w^2' : " << (w^2) << std::endl;
+        gca::GCA_scalar a = 2.0;
+        std::cout << "Operateur wedge avec scalar 'w^2' : " << (w^a) << std::endl;
 
         //VECTOR : opérateur wedge avec vector '^'
         std::cout << "Operateur wedge avec vector : \n u^v = " << (u^v) << "\n v^u = " << (v^u) << std::endl;
@@ -146,6 +147,9 @@ int main(){
 
         //VECTOR : opérateur wedge avec antitrivector '^'
         std::cout << "Operateur wedge avec antitrivector : \n s^~v = " << (s^~v) << "\n ~v^s " << /*~v^s << */  std::endl;
+
+        //VECTOR : opérateur wedge avec antiquadvector '^'
+        std::cout << "Operateur wedge avec antiquadvector : \n s^~2.0 = " << (s^~a) << std::endl;
 
         //VECTOR : opérateur ~
         std::cout << "Base dual de v : " << ~v << std::endl;
@@ -175,8 +179,8 @@ int main(){
         std::cout << "Modification par composante bivec.e13() = -2 : " << bivec << std::endl;
 
         //BIVECTOR : Operateur wedge avec scalar '^'
-        //Interdit à mon avis, déclarer un scalar avant.
-        // std::cout << "Operateur wedge avec scalar : \n bivec^2 = " << (bivec^2) << std::endl;
+        gca::GCA_scalar a = 2.0;
+        std::cout << "Operateur wedge avec scalar : \n bivec^2 = " << (bivec^a) << std::endl;
 
         //BIVECTOR : Operateur wedge avec vector '^'
         gca::GCA_vector u(1.0,2.0,3.0,1.0);
@@ -198,6 +202,9 @@ int main(){
         gca::GCA_vector vec;
         vec << 2.0, 3.0, 4.0, 5.0;
         std::cout << "Operateur wedge avec antitrivector : \n bivec^(~vec) = " << (bivec^(~vec)) << "\n (~vec)^ bivec = " << std::endl;
+
+        //BIVECTOR : opérateur wedge avec antiquadvector '^'
+        std::cout << "Operateur wedge avec antiquadvector : \n bivec^~2.0 = " << (bivec^~a) << std::endl;
 
         //BIVECTOR : opérateur ~
         std::cout << "Base duale de bivec : " << ~bivec << std::endl;
@@ -227,15 +234,22 @@ int main(){
         std::cout << "Modification par composante tv1.e123() = -2 : " << tv1 << std::endl;
 
         //TRIVECTOR : Operateur wedge avec scalar '^'
-        //std::cout << "Operateur wedge avec scalar : \n tv1^2 = " << (tv1^2) << std::endl;
+        gca::GCA_scalar a = 2.0;
+        std::cout << "Operateur wedge avec scalar : \n tv1^2 = " << (tv1^a) << std::endl;
 
         //TRIVECTOR : Operateur wedge avec vector '^'
         gca::GCA_vector u(1.0,2.0,3.0,1.0);
         std::cout << "Vector u : " << u << std::endl;
         std::cout << "Operateur wedge avec vector : \n tv1^u = " << (tv1^u) << "\n u^tv1 = " << (u^tv1) << std::endl;
 
-        //TRIVECTOR : Opérateur '~' (std::cout)
-        //std::cout << "Operateur '~' (std::cout) tv1 : " << ~tv1 << std::endl;
+        //TRIVECTOR : Operateur wedge avec antitrivector '^'
+        std::cout << "Operateur wedge avec antitrivector : \n tv1^~u = " << (tv1^~u) << std::endl;
+
+        //TRIVECTOR : Operateur wedge avec antiquadvector '^'
+        std::cout << "Operateur wedge avec scalar : \n tv1^~2 = " << (tv1^~a) << std::endl;
+
+        //TRIVECTOR : Opérateur ~
+        std::cout << "Base duale de tv1 : " << ~tv1 << std::endl;
     }
 /*
     std::cout << std::endl << "--------------Anti Scalaires-------------" << std::endl;
