@@ -1,5 +1,4 @@
 #include "grassmannCayley.hpp"
-#include <iostream>
 
 gca::GCA_antiscalar::GCA_antiscalar():
     value(1){}

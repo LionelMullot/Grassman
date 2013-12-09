@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 namespace gca{
 
 class GCA_antiscalar{
