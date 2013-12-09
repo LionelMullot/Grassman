@@ -23,6 +23,20 @@ gca::GCA_antivector& gca::GCA_antivector::operator=(const gca::GCA_antivector& O
     this->Eigen::Vector4d::operator=(Other);
 }
 
+gca::GCA_quadvector gca::GCA_antivector::operator^(const gca::GCA_vector Other) const{
+    gca::GCA_quadvector result;
+    unsigned int size = Other.size()-1;
+    for(unsigned int i = 0; i <= size; ++i){
+        if(i%2 == 0){
+            result.getValue() += this[0][i] * Other[size-i];
+        }
+        else{
+            result.getValue() -= this[0][i] * Other[size-i];
+        }
+    }
+    return result;
+}
+
 gca::GCA_trivector& gca::GCA_antivector::operator~() const{}
 
 namespace gca{

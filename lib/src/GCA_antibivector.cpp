@@ -21,6 +21,16 @@ gca::GCA_antibivector& gca::GCA_antibivector::operator=(const gca::GCA_antibivec
     this->Eigen::VectorXd::operator=(Other);
 }
 
+//Wedge
+gca::GCA_trivector gca::GCA_antibivector::operator^(const gca::GCA_vector& Other) const{
+    gca::GCA_trivector result;
+    result[0] = this[0][0]*Other[2] - this[0][1]*Other[1] + this[0][3]*Other[0];
+    result[1] = this[0][0]*Other[3] - this[0][2]*Other[1] + this[0][4]*Other[0];
+    result[2] = this[0][1]*Other[3] - this[0][2]*Other[2] + this[0][5]*Other[0];
+    result[3] = this[0][3]*Other[3] - this[0][4]*Other[2] + this[0][5]*Other[1];
+    return result;
+}
+
 gca::GCA_bivector gca::GCA_antibivector::operator~() const{
     gca::GCA_bivector result;
     result << this[0][5], -this[0][4], this[0][3], this[0][2], -this[0][1], this[0][0];

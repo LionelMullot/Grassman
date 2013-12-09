@@ -126,7 +126,7 @@ int main(){
         std::cout << "Modification par composante w.e1() = -2 : " << w << std::endl;
 
         //VECTOR : opérateur wedge avec scalar '^'
-        std::cout << "Operateur wedge avec scalar 'w^2' : " << (w^2) << std::endl;
+        //std::cout << "Operateur wedge avec scalar 'w^2' : " << (w^2) << std::endl;
 
         //VECTOR : opérateur wedge avec vector '^'
         std::cout << "Operateur wedge avec vector : \n u^v = " << (u^v) << "\n v^u = " << (v^u) << std::endl;

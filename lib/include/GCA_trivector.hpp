@@ -16,6 +16,7 @@ public:
     //Opérateur
     GCA_trivector& operator=(const GCA_trivector& Other);
 
+    //Wedge base
     GCA_trivector operator^(const GCA_scalar value); //N'est pas const car modifie le trivector appelé
     GCA_quadvector operator^(const GCA_vector Other) const;
 

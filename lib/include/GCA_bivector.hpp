@@ -15,9 +15,12 @@ public:
 	//Operateur
     GCA_bivector& operator=(const GCA_bivector& Other);
 
+    //Wedges Base
     GCA_bivector operator^(const GCA_scalar& value); //N'est pas const car modifie le bivector appelé
     GCA_trivector operator^(const GCA_vector& Other) const;
     GCA_quadvector operator^(const GCA_bivector& Other) const;
+
+    //Wedges Base duale
     GCA_quadvector operator^(const GCA_antibivector& Other) const;
     GCA_trivector operator^(const GCA_antitrivector& Other) const;
 
