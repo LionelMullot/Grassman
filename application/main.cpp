@@ -2,7 +2,8 @@
 #include <iostream>
 
 
-void plop (){
+void codeTest (){
+  std :: cout << "" << std :: endl ;
     gca :: GCA_vector a (1.0 ,2.0 ,3.0 ,1.0);
     gca :: GCA_vector b ;
     b << 3.0 , 2.0 , 1.0 , 1.0;
@@ -11,8 +12,8 @@ void plop (){
     gca :: GCA_vector x1 (2.0 , -1.0 , -1.0 ,1.0);
     gca :: GCA_vector x2 (1.0 , -1.0 ,1.0 ,1.0);
     gca :: GCA_vector x3 ( -1.0 , -1.0 , -2.0 ,1.0);
-   /* gca :: GCA_trivector d = x1 ^ x2 ^ x3 ; // d is a plane
-    std :: cout << " intersection : " << ~ d ^~ l << std :: endl ;*/
+    gca :: GCA_trivector d = x1 ^ x2 ^ x3 ; // d is a plane
+    std :: cout << " intersection : " << (~ d^~ l) << std :: endl ;
 }
 
 
@@ -312,9 +313,10 @@ int main(){
     antiquadv1 << 9.0;
     scalar = ~antiquadv1;
     std::cout << "Scalaire par base duale d'antiquadv1(egal a 9) scalar= " << scalar << std::endl;
-
-   // plop();
 */
+
+    codeTest();
+
     return 0;
 }
 

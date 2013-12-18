@@ -15,6 +15,13 @@ public:
     GCA_antiquadvector& operator=(const GCA_antiquadvector& Other);
     GCA_antiquadvector& operator<<(const double& in);
 
+    GCA_antiquadvector operator^(const GCA_scalar& Other) const;
+    GCA_vector operator^(GCA_vector& Other) const;
+    GCA_bivector operator^(GCA_bivector& Other) const;
+    GCA_trivector operator^(GCA_trivector& Other) const;
+    GCA_quadvector operator^(GCA_quadvector& Other) const;
+    GCA_scalar operator^(const GCA_antiscalar& Other) const;
+
     GCA_scalar operator~() const;
 
     //Affichage

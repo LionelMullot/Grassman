@@ -16,7 +16,12 @@ public:
     //Opérateur
     GCA_antivector& operator=(const GCA_antivector& Other);
 
-    GCA_quadvector operator^(const gca::GCA_vector Other) const;
+    GCA_antivector operator^(const gca::GCA_scalar& Other) const;
+    GCA_quadvector operator^(const gca::GCA_vector& Other) const;
+    GCA_trivector operator^(const gca::GCA_antiscalar& Other) const;
+    GCA_bivector operator^(const gca::GCA_antivector& Other) const;
+    GCA_vector operator^(const gca::GCA_antibivector& Other) const;
+    GCA_scalar operator^(const gca::GCA_antitrivector& Other) const;
 
     GCA_trivector& operator~() const;
 

@@ -28,6 +28,55 @@ gca::GCA_antitrivector& gca::GCA_antitrivector::operator=(const gca::GCA_antitri
     this->Eigen::Vector4d::operator=(Other);
 }
 
+gca::GCA_antitrivector gca::GCA_antitrivector::operator^(const gca::GCA_scalar& Other) const{
+    gca::GCA_antitrivector result;
+    result = Other^this[0];
+    for(unsigned int i = 0; i < result.size(); ++i){
+        result[i] = -result[i]; // a^b = -b^a
+    }
+    return result;
+}
+
+gca::GCA_bivector gca::GCA_antitrivector::operator^(const gca::GCA_vector& Other) const{
+    gca::GCA_bivector result;
+    result = Other^this[0];
+    for(unsigned int i = 0; i < result.size(); ++i){
+        result[i] = -result[i]; // a^b = -b^a
+    }
+    return result;
+}
+
+gca::GCA_trivector gca::GCA_antitrivector::operator^(const gca::GCA_bivector& Other) const{
+    gca::GCA_trivector result;
+    result = Other^this[0];
+    for(unsigned int i = 0; i < result.size(); ++i){
+        result[i] = -result[i]; // a^b = -b^a
+    }
+    return result;
+}
+
+gca::GCA_quadvector gca::GCA_antitrivector::operator^(const gca::GCA_trivector& Other) const{
+    gca::GCA_quadvector result;
+    result = Other^this[0];
+    result.getValue() = -result.getValue();
+    return result;
+}
+
+gca::GCA_vector gca::GCA_antitrivector::operator^(const gca::GCA_antiscalar& Other) const{
+  GCA_vector result;
+  for(unsigned int i = 0; i < this[0].size(); ++i){
+    result[i] = this[0][i] * Other.getValue();
+  }
+  return result;
+}
+
+gca::GCA_scalar gca::GCA_antitrivector::operator^(const gca::GCA_antivector& Other) const{
+  GCA_scalar result;
+  result = Other^this[0];
+  result.getValue() = -result.getValue();
+  return result;
+}
+
 gca::GCA_vector gca::GCA_antitrivector::operator~() const{
     gca::GCA_vector result;
     result << this[0][3], -this[0][2], this[0][1], -this[0][0];

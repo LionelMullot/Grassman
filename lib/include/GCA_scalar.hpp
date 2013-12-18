@@ -36,7 +36,7 @@ public:
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& os, const GCA_scalar& scalar);
-
+    double& getValue(){ return value; }
     const double& getValue() const{ return value; }
 
 

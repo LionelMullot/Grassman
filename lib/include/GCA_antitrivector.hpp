@@ -16,6 +16,14 @@ public:
     //Opérateur
     GCA_antitrivector& operator=(const GCA_antitrivector& Other);
 
+    //Wedge
+    GCA_antitrivector operator^(const GCA_scalar& Other) const;
+    GCA_bivector operator^(const GCA_vector& Other) const;
+    GCA_trivector operator^(const GCA_bivector& Other) const;
+    GCA_quadvector operator^(const GCA_trivector& Other) const;
+    GCA_vector operator^(const GCA_antiscalar& Other) const;
+    GCA_scalar operator^(const GCA_antivector& Other) const;
+
     GCA_vector operator~() const;
 
     //Affichage
