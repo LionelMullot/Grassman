@@ -39,7 +39,6 @@ public:
     double& getValue(){ return value; }
     const double& getValue() const{ return value; }
 
-
 private:
     double value;
 };

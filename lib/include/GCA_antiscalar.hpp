@@ -12,9 +12,13 @@ public:
     //Opérateur
     GCA_antiscalar& operator=(const GCA_antiscalar& Other);
 
-    GCA_antiscalar& operator^(const GCA_antiscalar& Other);
+    GCA_antiscalar operator^(const GCA_scalar& Other);
 
-    GCA_vector operator^(GCA_vector vector);
+    //Anti Wedge
+    GCA_scalar operator^(const GCA_antiquadvector& Other);
+    GCA_vector operator^(const GCA_antitrivector& Other);
+    GCA_bivector operator^(const GCA_antibivector& Other);
+    GCA_trivector operator^(const GCA_antivector& Other);
 
     GCA_antiscalar& operator<<(const double& in);
 
@@ -25,6 +29,8 @@ public:
 
     double& getValue(){ return value; }
     const double& getValue() const{ return value; }
+    const double& e1234() const{ return value; }
+    double& e1234() { return value; }
 
 private:
     double value;

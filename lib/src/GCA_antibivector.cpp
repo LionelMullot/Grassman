@@ -9,6 +9,18 @@ gca::GCA_antibivector::GCA_antibivector():
 gca::GCA_antibivector::GCA_antibivector(const gca::GCA_antibivector& other):
     Eigen::VectorXd(other), composantes(other.composantes) {}
 
+
+gca::GCA_antibivector::GCA_antibivector(const double e34, const double e24, const double e23, const double e14, const double e13, const double e12):
+    Eigen::VectorXd(6) {
+      this[0][0] = e34;
+      this[0][1] = e24;
+      this[0][2] = e23;
+      this[0][3] = e14;
+      this[0][4] = e13;
+      this[0][5] = e12;
+      setComposantes();
+    }
+
 void gca::GCA_antibivector::setComposantes(){
     for(unsigned int i = 3; i > 0; --i){
         for(unsigned int j = 4; j > i; --j){

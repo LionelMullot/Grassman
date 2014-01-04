@@ -15,12 +15,8 @@ gca::GCA_antitrivector::GCA_antitrivector(const gca::GCA_antitrivector& other):
     Eigen::Vector4d(other), composantes(other.composantes) {}
 
 void gca::GCA_antitrivector::setComposantes(){
-    for(unsigned int i = 1; i < 3; ++i){
-        for(unsigned int j = i+1; j < 4; ++j){
-            for(unsigned int k = j+1; k < 5; ++k){
-         		composantes.push_back(i*100 + j*10 + k);
-            }
-        }
+    for(unsigned int i = 4; i > 0; --i){
+        composantes.push_back(i);
     }
 }
 

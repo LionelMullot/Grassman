@@ -25,6 +25,7 @@ public:
     double& getValue(){ return value; }
     const double& getValue() const{ return value; } //Utiliser pour l'affichage d'un quadvector qui serait const
     const double& e1234() const{ return value; }
+    double& e1234() { return value; }
 
 
 private:

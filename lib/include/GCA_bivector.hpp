@@ -11,6 +11,8 @@ public:
 	//Constructeur
 	GCA_bivector();
 	GCA_bivector(const GCA_bivector& other);
+    GCA_bivector(const double e12, const double e13, const double e14, const double e23, const double e24, const double e34);
+
 
 	//Operateur
     GCA_bivector& operator=(const GCA_bivector& Other);
@@ -25,7 +27,7 @@ public:
     GCA_trivector operator^(const GCA_antitrivector& Other) const;
     GCA_bivector operator^(const GCA_antiquadvector& Other);
 
-    GCA_antibivector operator~() const; //Changer le type de retour
+    GCA_antibivector operator~() const;
 
     //Affichage
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_bivector& in);

@@ -21,6 +21,8 @@ public:
     GCA_bivector operator^(const GCA_vector& Other) const;
     GCA_trivector operator^(const GCA_bivector& Other) const;
     GCA_quadvector operator^(const GCA_trivector& Other) const;
+
+    //Anti Wedge
     GCA_vector operator^(const GCA_antiscalar& Other) const;
     GCA_scalar operator^(const GCA_antivector& Other) const;
 
@@ -30,15 +32,15 @@ public:
 
     friend std::ostream& operator<<(std::ostream& Stream, const GCA_antitrivector& in);
 
-    const double& e123() const{return this[0][0];} 
-    const double& e124() const{return this[0][1];} 
-    const double& e134() const{return this[0][2];}
-    const double& e234() const{return this[0][3];}
+    const double& e4() const{return this[0][0];} 
+    const double& e3() const{return this[0][1];} 
+    const double& e2() const{return this[0][2];}
+    const double& e1() const{return this[0][3];}
 
 private:
 	/********* Ordre des composantes ********
 	*
-	*	e123, e124, e134, e234
+	*	e4, e3, e2, e1
 	*
 	***/
     std::vector<unsigned int> composantes;

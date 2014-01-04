@@ -9,6 +9,17 @@ gca::GCA_bivector::GCA_bivector():
 gca::GCA_bivector::GCA_bivector(const gca::GCA_bivector& other):
     Eigen::VectorXd(other), composantes(other.composantes) {}
 
+gca::GCA_bivector::GCA_bivector(const double e12, const double e13, const double e14, const double e23, const double e24, const double e34):
+    Eigen::VectorXd(6) {
+        this[0][0] = e12;
+        this[0][1] = e13;
+        this[0][2] = e14;
+        this[0][3] = e23;
+        this[0][4] = e24;
+        this[0][5] = e34;
+        setComposantes();
+    }
+
 void gca::GCA_bivector::setComposantes(){
     for(unsigned int i = 1; i < 4; ++i){
         for(unsigned int j = i+1; j <= 4; ++j){

@@ -20,6 +20,8 @@ public:
     GCA_bivector operator^(GCA_bivector& Other) const;
     GCA_trivector operator^(GCA_trivector& Other) const;
     GCA_quadvector operator^(GCA_quadvector& Other) const;
+
+    //Anti Wedge
     GCA_scalar operator^(const GCA_antiscalar& Other) const;
 
     GCA_scalar operator~() const;
@@ -30,8 +32,6 @@ public:
 
     double& getValue(){ return value; }
     const double& getValue() const{ return value; }
-    double& e1234() { return value; }
-    const double& e1234() const{ return value; }
 
 private:
     double value;
